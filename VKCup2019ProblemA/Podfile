@@ -1,0 +1,4 @@
+target 'VKCup2019ProblemA' do
+  use_frameworks!
+  pod 'VK-ios-sdk'
+end
