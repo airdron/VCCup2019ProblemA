@@ -9,7 +9,7 @@
 import Foundation
 
 protocol AuthService {
-        
+
     func login(completion: @escaping (Result<Void, Error>) -> Void)
     func authCheck(completion: @escaping (Result<Bool, Error>) -> Void)
 }

@@ -11,8 +11,14 @@ import UIKit
 class NavigationMainCoordinatorController: VKCupNavigationController {
      
     private let authService: AuthService
+    private let authModuleContainer: AuthModuleContainer
+    private let documentsModuleContainer: DocumentsModuleContainer
     
-    init(authService: AuthService) {
+    init(authModuleContainer: AuthModuleContainer,
+         documentsModuleContainer: DocumentsModuleContainer,
+         authService: AuthService) {
+        self.authModuleContainer = authModuleContainer
+        self.documentsModuleContainer = documentsModuleContainer
         self.authService = authService
         super.init(nibName: nil, bundle: nil)
     }
@@ -40,7 +46,7 @@ class NavigationMainCoordinatorController: VKCupNavigationController {
     }
     
     private func startAuthFlow() {
-        let authViewController = AuthViewController(authService: authService)
+        let authViewController = authModuleContainer.make()
         
         authViewController.onCompletion = { [weak self] in
             self?.startDocumentsFlow()
@@ -50,8 +56,7 @@ class NavigationMainCoordinatorController: VKCupNavigationController {
     }
     
     private func startDocumentsFlow() {
-        let viewController = UIViewController()
-        viewController.view.backgroundColor = .red
+        let viewController = documentsModuleContainer.make()
         setViewControllers([viewController], animated: true)
     }
 }

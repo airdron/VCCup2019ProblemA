@@ -17,6 +17,14 @@
 		3653019023F897C7006D80A6 /* UIAlertController+Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3653018F23F897C7006D80A6 /* UIAlertController+Error.swift */; };
 		3653019223F897D8006D80A6 /* UIAlertController+Waiting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3653019123F897D8006D80A6 /* UIAlertController+Waiting.swift */; };
 		3653019423F89A1C006D80A6 /* UIViewController+DefaultAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3653019323F89A1C006D80A6 /* UIViewController+DefaultAlert.swift */; };
+		369877ED23F9C75B00B1EA26 /* AuthModuleContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 369877EC23F9C75B00B1EA26 /* AuthModuleContainer.swift */; };
+		369877EF23F9CFDF00B1EA26 /* UIViewController+SafeArea.swift in Sources */ = {isa = PBXBuildFile; fileRef = 369877EE23F9CFDF00B1EA26 /* UIViewController+SafeArea.swift */; };
+		36A203E923F9A96300C34815 /* Documents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36A203E823F9A96300C34815 /* Documents.swift */; };
+		36A203EB23F9AE6B00C34815 /* VKDocumentService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36A203EA23F9AE6B00C34815 /* VKDocumentService.swift */; };
+		36A203EE23F9BDC000C34815 /* DocumentsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36A203ED23F9BDC000C34815 /* DocumentsService.swift */; };
+		36A203F123F9C0AD00C34815 /* DocumentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36A203F023F9C0AD00C34815 /* DocumentsViewController.swift */; };
+		36A203F323F9C0DE00C34815 /* DocumentsModelController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36A203F223F9C0DE00C34815 /* DocumentsModelController.swift */; };
+		36A203F523F9C12E00C34815 /* DocumentsModuleContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36A203F423F9C12E00C34815 /* DocumentsModuleContainer.swift */; };
 		36B3207A23F89C1C003E6F26 /* NavigationMainCoordinatorController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36B3207923F89C1C003E6F26 /* NavigationMainCoordinatorController.swift */; };
 		36B3207C23F8A3FC003E6F26 /* VKInitializing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36B3207B23F8A3FC003E6F26 /* VKInitializing.swift */; };
 		36B3207E23F8A475003E6F26 /* DependencyService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36B3207D23F8A475003E6F26 /* DependencyService.swift */; };
@@ -40,6 +48,14 @@
 		3653018F23F897C7006D80A6 /* UIAlertController+Error.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIAlertController+Error.swift"; sourceTree = "<group>"; };
 		3653019123F897D8006D80A6 /* UIAlertController+Waiting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIAlertController+Waiting.swift"; sourceTree = "<group>"; };
 		3653019323F89A1C006D80A6 /* UIViewController+DefaultAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+DefaultAlert.swift"; sourceTree = "<group>"; };
+		369877EC23F9C75B00B1EA26 /* AuthModuleContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthModuleContainer.swift; sourceTree = "<group>"; };
+		369877EE23F9CFDF00B1EA26 /* UIViewController+SafeArea.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+SafeArea.swift"; sourceTree = "<group>"; };
+		36A203E823F9A96300C34815 /* Documents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Documents.swift; sourceTree = "<group>"; };
+		36A203EA23F9AE6B00C34815 /* VKDocumentService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VKDocumentService.swift; sourceTree = "<group>"; };
+		36A203ED23F9BDC000C34815 /* DocumentsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentsService.swift; sourceTree = "<group>"; };
+		36A203F023F9C0AD00C34815 /* DocumentsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentsViewController.swift; sourceTree = "<group>"; };
+		36A203F223F9C0DE00C34815 /* DocumentsModelController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentsModelController.swift; sourceTree = "<group>"; };
+		36A203F423F9C12E00C34815 /* DocumentsModuleContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentsModuleContainer.swift; sourceTree = "<group>"; };
 		36B3207923F89C1C003E6F26 /* NavigationMainCoordinatorController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationMainCoordinatorController.swift; sourceTree = "<group>"; };
 		36B3207B23F8A3FC003E6F26 /* VKInitializing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VKInitializing.swift; sourceTree = "<group>"; };
 		36B3207D23F8A475003E6F26 /* DependencyService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DependencyService.swift; sourceTree = "<group>"; };
@@ -82,6 +98,7 @@
 				3653019123F897D8006D80A6 /* UIAlertController+Waiting.swift */,
 				3653019323F89A1C006D80A6 /* UIViewController+DefaultAlert.swift */,
 				3604B7D223F8B1D800C26230 /* VKCupNavigationController.swift */,
+				369877EE23F9CFDF00B1EA26 /* UIViewController+SafeArea.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -89,8 +106,9 @@
 		3653018823F88ED6006D80A6 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				36A203F823F9C25D00C34815 /* Root */,
+				36A203EF23F9C07F00C34815 /* DocumentsModule */,
 				3653018923F88EE0006D80A6 /* AuthorizationModule */,
-				36B3207923F89C1C003E6F26 /* NavigationMainCoordinatorController.swift */,
 			);
 			path = Modules;
 			sourceTree = "<group>";
@@ -99,6 +117,7 @@
 			isa = PBXGroup;
 			children = (
 				36D669BF23F863DA00F85B77 /* AuthViewController.swift */,
+				369877EC23F9C75B00B1EA26 /* AuthModuleContainer.swift */,
 			);
 			path = AuthorizationModule;
 			sourceTree = "<group>";
@@ -106,12 +125,49 @@
 		3653018A23F88EFA006D80A6 /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				3653018B23F88F0C006D80A6 /* AuthService.swift */,
+				36A203EC23F9BD9F00C34815 /* Protocols */,
+				36A203E723F9A8EB00C34815 /* Entities */,
 				3653018D23F891E2006D80A6 /* VKAuthService.swift */,
-				36B3207B23F8A3FC003E6F26 /* VKInitializing.swift */,
 				36B3207D23F8A475003E6F26 /* DependencyService.swift */,
+				36A203EA23F9AE6B00C34815 /* VKDocumentService.swift */,
 			);
 			path = Services;
+			sourceTree = "<group>";
+		};
+		36A203E723F9A8EB00C34815 /* Entities */ = {
+			isa = PBXGroup;
+			children = (
+				36A203E823F9A96300C34815 /* Documents.swift */,
+			);
+			path = Entities;
+			sourceTree = "<group>";
+		};
+		36A203EC23F9BD9F00C34815 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				36B3207B23F8A3FC003E6F26 /* VKInitializing.swift */,
+				3653018B23F88F0C006D80A6 /* AuthService.swift */,
+				36A203ED23F9BDC000C34815 /* DocumentsService.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		36A203EF23F9C07F00C34815 /* DocumentsModule */ = {
+			isa = PBXGroup;
+			children = (
+				36A203F023F9C0AD00C34815 /* DocumentsViewController.swift */,
+				36A203F223F9C0DE00C34815 /* DocumentsModelController.swift */,
+				36A203F423F9C12E00C34815 /* DocumentsModuleContainer.swift */,
+			);
+			path = DocumentsModule;
+			sourceTree = "<group>";
+		};
+		36A203F823F9C25D00C34815 /* Root */ = {
+			isa = PBXGroup;
+			children = (
+				36B3207923F89C1C003E6F26 /* NavigationMainCoordinatorController.swift */,
+			);
+			path = Root;
 			sourceTree = "<group>";
 		};
 		36D669AF23F863DA00F85B77 = {
@@ -301,13 +357,21 @@
 				3604B7D323F8B1D800C26230 /* VKCupNavigationController.swift in Sources */,
 				36D669C023F863DA00F85B77 /* AuthViewController.swift in Sources */,
 				3653018723F88E9A006D80A6 /* Closures.swift in Sources */,
+				36A203F123F9C0AD00C34815 /* DocumentsViewController.swift in Sources */,
+				36A203F523F9C12E00C34815 /* DocumentsModuleContainer.swift in Sources */,
+				36A203F323F9C0DE00C34815 /* DocumentsModelController.swift in Sources */,
 				3653019223F897D8006D80A6 /* UIAlertController+Waiting.swift in Sources */,
+				36A203EE23F9BDC000C34815 /* DocumentsService.swift in Sources */,
+				36A203EB23F9AE6B00C34815 /* VKDocumentService.swift in Sources */,
 				36B3207A23F89C1C003E6F26 /* NavigationMainCoordinatorController.swift in Sources */,
 				3653019423F89A1C006D80A6 /* UIViewController+DefaultAlert.swift in Sources */,
 				3653018C23F88F0C006D80A6 /* AuthService.swift in Sources */,
 				36B3207C23F8A3FC003E6F26 /* VKInitializing.swift in Sources */,
+				36A203E923F9A96300C34815 /* Documents.swift in Sources */,
 				3653018423F88E6E006D80A6 /* Localizable.swift in Sources */,
+				369877EF23F9CFDF00B1EA26 /* UIViewController+SafeArea.swift in Sources */,
 				3653019023F897C7006D80A6 /* UIAlertController+Error.swift in Sources */,
+				369877ED23F9C75B00B1EA26 /* AuthModuleContainer.swift in Sources */,
 				3653018E23F891E2006D80A6 /* VKAuthService.swift in Sources */,
 				36B3207E23F8A475003E6F26 /* DependencyService.swift in Sources */,
 				36D669BC23F863DA00F85B77 /* AppDelegate.swift in Sources */,

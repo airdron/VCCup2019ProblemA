@@ -14,6 +14,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
+    // https://vk.com/dev/docs.get?params[count]=0&params[offset]=0&params[type]=0&params[owner_id]=12658215&params[return_tags]=0&params[v]=5.103
+    
     private let dependencyService = DependencyService()
     private lazy var vkInitialization: VKInitializing = dependencyService.resolve()
     
@@ -22,8 +24,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         vkInitialization.vkInitialize()
         
         window = UIWindow(frame: UIScreen.main.bounds)
-        window?.rootViewController = NavigationMainCoordinatorController(authService: dependencyService.resolve())
+        window?.rootViewController = NavigationMainCoordinatorController(authModuleContainer: AuthModuleContainer(dependencyService: dependencyService),
+                                                                         documentsModuleContainer: DocumentsModuleContainer(dependencyService: dependencyService),
+                                                                         authService: dependencyService.resolve())
         window?.makeKeyAndVisible()
+        
         return true
     }
     

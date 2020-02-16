@@ -17,4 +17,8 @@ class DependencyService {
     func resolve() -> AuthService {
         return vkAuthService
     }
+    
+    func resolve() -> DocumentsService {
+        return VKDocumentService()
+    }
 }

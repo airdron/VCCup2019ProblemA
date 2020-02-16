@@ -12,19 +12,18 @@ import VK_ios_sdk
 class VKAuthService: NSObject, AuthService, VKInitializing {
     
     private let appId = "7322295"
-    private let scope = [VK_PER_WALL, VK_PER_FRIENDS]
+    private let apiVersion = "5.103"
+    private let scope = [VK_PER_DOCS]
     
     private var authCompletion: ((Result<Void, Error>) -> Void)?
     
     func vkInitialize() {
-        
-        if !VKSdk.initialized(), let instance = VKSdk.initialize(withAppId: self.appId) {
+        if !VKSdk.initialized(), let instance = VKSdk.initialize(withAppId: appId, apiVersion: apiVersion) {
             instance.register(self)
         }
     }
     
     func login(completion: @escaping (Result<Void, Error>) -> Void) {
-                
         authCompletion = completion
         VKSdk.authorize(scope)
     }
@@ -64,7 +63,5 @@ extension VKAuthService: VKSdkDelegate {
         authCompletion?(.failure(NSError()))
     }
     
-    func vkSdkAccessTokenUpdated(_ newToken: VKAccessToken!, oldToken: VKAccessToken!) {
-
-    }
+    func vkSdkAccessTokenUpdated(_ newToken: VKAccessToken!, oldToken: VKAccessToken!) {}
 }
