@@ -36,6 +36,8 @@
 		36D669C823F863DE00F85B77 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 36D669C623F863DE00F85B77 /* LaunchScreen.storyboard */; };
 		36E7EE0223FB359B00E35038 /* DocumentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36E7EE0123FB359B00E35038 /* DocumentTableViewCell.swift */; };
 		36E7EE0423FB38B100E35038 /* UITableViewCell+ReuseIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36E7EE0323FB38B100E35038 /* UITableViewCell+ReuseIdentifier.swift */; };
+		36E7EE0623FB52E100E35038 /* DocumentType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36E7EE0523FB52E100E35038 /* DocumentType.swift */; };
+		36E7EE0823FB53A600E35038 /* ImageUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36E7EE0723FB53A600E35038 /* ImageUtils.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -73,6 +75,8 @@
 		36D669C923F863DE00F85B77 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		36E7EE0123FB359B00E35038 /* DocumentTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentTableViewCell.swift; sourceTree = "<group>"; };
 		36E7EE0323FB38B100E35038 /* UITableViewCell+ReuseIdentifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableViewCell+ReuseIdentifier.swift"; sourceTree = "<group>"; };
+		36E7EE0523FB52E100E35038 /* DocumentType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentType.swift; sourceTree = "<group>"; };
+		36E7EE0723FB53A600E35038 /* ImageUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageUtils.swift; sourceTree = "<group>"; };
 		4802170B2DD7AC76F5F88433 /* Pods_VKCup2019ProblemA.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VKCup2019ProblemA.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C3195E6732D692BA1CF48266 /* Pods-VKCup2019ProblemA.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VKCup2019ProblemA.release.xcconfig"; path = "Target Support Files/Pods-VKCup2019ProblemA/Pods-VKCup2019ProblemA.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -108,6 +112,7 @@
 				3604B7D223F8B1D800C26230 /* VKCupNavigationController.swift */,
 				369877EE23F9CFDF00B1EA26 /* UIViewController+SafeArea.swift */,
 				36E7EE0323FB38B100E35038 /* UITableViewCell+ReuseIdentifier.swift */,
+				36E7EE0723FB53A600E35038 /* ImageUtils.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -156,6 +161,7 @@
 			isa = PBXGroup;
 			children = (
 				36A203E823F9A96300C34815 /* Documents.swift */,
+				36E7EE0523FB52E100E35038 /* DocumentType.swift */,
 			);
 			path = Entities;
 			sourceTree = "<group>";
@@ -393,9 +399,11 @@
 				36A203EE23F9BDC000C34815 /* DocumentsService.swift in Sources */,
 				36A203EB23F9AE6B00C34815 /* VKDocumentService.swift in Sources */,
 				36B3207A23F89C1C003E6F26 /* NavigationMainCoordinatorController.swift in Sources */,
+				36E7EE0823FB53A600E35038 /* ImageUtils.swift in Sources */,
 				3653019423F89A1C006D80A6 /* UIViewController+DefaultAlert.swift in Sources */,
 				3653018C23F88F0C006D80A6 /* AuthService.swift in Sources */,
 				36B3207C23F8A3FC003E6F26 /* VKInitializing.swift in Sources */,
+				36E7EE0623FB52E100E35038 /* DocumentType.swift in Sources */,
 				36A203E923F9A96300C34815 /* Documents.swift in Sources */,
 				36E7EE0423FB38B100E35038 /* UITableViewCell+ReuseIdentifier.swift in Sources */,
 				366F403923FB333300E1AF59 /* DocumentsViewModelConverter.swift in Sources */,

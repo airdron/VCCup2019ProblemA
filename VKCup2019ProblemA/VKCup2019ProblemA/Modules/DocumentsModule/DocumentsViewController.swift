@@ -13,6 +13,7 @@ class DocumentsViewController: UIViewController {
     private let modelController: DocumentsModelController
     private let tableView = UITableView(frame: .zero, style: .grouped)
     private var viewModels: [DocumentViewModel] = []
+    private let rowHeight: CGFloat = 84
     
     init(modelController: DocumentsModelController) {
         self.modelController = modelController
@@ -29,6 +30,8 @@ class DocumentsViewController: UIViewController {
         setupUI()
         
         view.addSubview(tableView)
+        
+        modelController.fetchInitialDocuments()
     }
     
     override func viewDidLayoutSubviews() {
@@ -60,6 +63,17 @@ extension DocumentsViewController: UITableViewDataSource {
 
 extension DocumentsViewController: UITableViewDelegate {
     
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        rowHeight
+    }
+    
+    func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
+        rowHeight
+    }
+    
+    func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? { nil }
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? { nil }
 }
 
 private extension DocumentsViewController {
@@ -68,10 +82,21 @@ private extension DocumentsViewController {
         title = L10n.documentsTitle
         view.backgroundColor = .white
         
+        if #available(iOS 11.0, *) {
+            tableView.contentInsetAdjustmentBehavior = .never
+        } else {
+            automaticallyAdjustsScrollViewInsets = false
+        }
+        
+        tableView.backgroundColor = .white
+        
         tableView.register(DocumentTableViewCell.self,
                            forCellReuseIdentifier: DocumentTableViewCell.reuseIdentifier)
         tableView.separatorStyle = .none
         tableView.contentInset = Constants.tableContentInsets
+        
+        tableView.delegate = self
+        tableView.dataSource = self
     }
 }
 
