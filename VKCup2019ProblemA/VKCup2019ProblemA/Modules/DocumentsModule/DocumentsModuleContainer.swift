@@ -17,7 +17,9 @@ class DocumentsModuleContainer {
     }
     
     func make() -> DocumentsViewController {
-        let modelController = DocumentsModelController(documentsService: dependencyService.resolve())
+        let viewModelConverter = DocumentsViewModelConverter()
+        let modelController = DocumentsModelController(viewModelConverter: viewModelConverter,
+                                                       documentsService: dependencyService.resolve())
         let viewController = DocumentsViewController(modelController: modelController)
         modelController.output = viewController
         return viewController

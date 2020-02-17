@@ -17,6 +17,8 @@
 		3653019023F897C7006D80A6 /* UIAlertController+Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3653018F23F897C7006D80A6 /* UIAlertController+Error.swift */; };
 		3653019223F897D8006D80A6 /* UIAlertController+Waiting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3653019123F897D8006D80A6 /* UIAlertController+Waiting.swift */; };
 		3653019423F89A1C006D80A6 /* UIViewController+DefaultAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3653019323F89A1C006D80A6 /* UIViewController+DefaultAlert.swift */; };
+		366F403923FB333300E1AF59 /* DocumentsViewModelConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 366F403823FB333300E1AF59 /* DocumentsViewModelConverter.swift */; };
+		366F403E23FB338400E1AF59 /* DocumentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 366F403D23FB338400E1AF59 /* DocumentViewModel.swift */; };
 		369877ED23F9C75B00B1EA26 /* AuthModuleContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 369877EC23F9C75B00B1EA26 /* AuthModuleContainer.swift */; };
 		369877EF23F9CFDF00B1EA26 /* UIViewController+SafeArea.swift in Sources */ = {isa = PBXBuildFile; fileRef = 369877EE23F9CFDF00B1EA26 /* UIViewController+SafeArea.swift */; };
 		36A203E923F9A96300C34815 /* Documents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36A203E823F9A96300C34815 /* Documents.swift */; };
@@ -32,6 +34,8 @@
 		36D669C023F863DA00F85B77 /* AuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36D669BF23F863DA00F85B77 /* AuthViewController.swift */; };
 		36D669C523F863DE00F85B77 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 36D669C423F863DE00F85B77 /* Assets.xcassets */; };
 		36D669C823F863DE00F85B77 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 36D669C623F863DE00F85B77 /* LaunchScreen.storyboard */; };
+		36E7EE0223FB359B00E35038 /* DocumentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36E7EE0123FB359B00E35038 /* DocumentTableViewCell.swift */; };
+		36E7EE0423FB38B100E35038 /* UITableViewCell+ReuseIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36E7EE0323FB38B100E35038 /* UITableViewCell+ReuseIdentifier.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -48,6 +52,8 @@
 		3653018F23F897C7006D80A6 /* UIAlertController+Error.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIAlertController+Error.swift"; sourceTree = "<group>"; };
 		3653019123F897D8006D80A6 /* UIAlertController+Waiting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIAlertController+Waiting.swift"; sourceTree = "<group>"; };
 		3653019323F89A1C006D80A6 /* UIViewController+DefaultAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+DefaultAlert.swift"; sourceTree = "<group>"; };
+		366F403823FB333300E1AF59 /* DocumentsViewModelConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentsViewModelConverter.swift; sourceTree = "<group>"; };
+		366F403D23FB338400E1AF59 /* DocumentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentViewModel.swift; sourceTree = "<group>"; };
 		369877EC23F9C75B00B1EA26 /* AuthModuleContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthModuleContainer.swift; sourceTree = "<group>"; };
 		369877EE23F9CFDF00B1EA26 /* UIViewController+SafeArea.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+SafeArea.swift"; sourceTree = "<group>"; };
 		36A203E823F9A96300C34815 /* Documents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Documents.swift; sourceTree = "<group>"; };
@@ -65,6 +71,8 @@
 		36D669C423F863DE00F85B77 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		36D669C723F863DE00F85B77 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		36D669C923F863DE00F85B77 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		36E7EE0123FB359B00E35038 /* DocumentTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentTableViewCell.swift; sourceTree = "<group>"; };
+		36E7EE0323FB38B100E35038 /* UITableViewCell+ReuseIdentifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableViewCell+ReuseIdentifier.swift"; sourceTree = "<group>"; };
 		4802170B2DD7AC76F5F88433 /* Pods_VKCup2019ProblemA.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VKCup2019ProblemA.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C3195E6732D692BA1CF48266 /* Pods-VKCup2019ProblemA.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VKCup2019ProblemA.release.xcconfig"; path = "Target Support Files/Pods-VKCup2019ProblemA/Pods-VKCup2019ProblemA.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -99,6 +107,7 @@
 				3653019323F89A1C006D80A6 /* UIViewController+DefaultAlert.swift */,
 				3604B7D223F8B1D800C26230 /* VKCupNavigationController.swift */,
 				369877EE23F9CFDF00B1EA26 /* UIViewController+SafeArea.swift */,
+				36E7EE0323FB38B100E35038 /* UITableViewCell+ReuseIdentifier.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -134,6 +143,15 @@
 			path = Services;
 			sourceTree = "<group>";
 		};
+		366F403C23FB334C00E1AF59 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				366F403823FB333300E1AF59 /* DocumentsViewModelConverter.swift */,
+				366F403D23FB338400E1AF59 /* DocumentViewModel.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		36A203E723F9A8EB00C34815 /* Entities */ = {
 			isa = PBXGroup;
 			children = (
@@ -155,6 +173,8 @@
 		36A203EF23F9C07F00C34815 /* DocumentsModule */ = {
 			isa = PBXGroup;
 			children = (
+				36E7EE0023FB358500E35038 /* Views */,
+				366F403C23FB334C00E1AF59 /* Models */,
 				36A203F023F9C0AD00C34815 /* DocumentsViewController.swift */,
 				36A203F223F9C0DE00C34815 /* DocumentsModelController.swift */,
 				36A203F423F9C12E00C34815 /* DocumentsModuleContainer.swift */,
@@ -201,6 +221,14 @@
 				36D669C923F863DE00F85B77 /* Info.plist */,
 			);
 			path = VKCup2019ProblemA;
+			sourceTree = "<group>";
+		};
+		36E7EE0023FB358500E35038 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				36E7EE0123FB359B00E35038 /* DocumentTableViewCell.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 		830B6D4DB72B0D5093C1F570 /* Frameworks */ = {
@@ -359,6 +387,7 @@
 				3653018723F88E9A006D80A6 /* Closures.swift in Sources */,
 				36A203F123F9C0AD00C34815 /* DocumentsViewController.swift in Sources */,
 				36A203F523F9C12E00C34815 /* DocumentsModuleContainer.swift in Sources */,
+				366F403E23FB338400E1AF59 /* DocumentViewModel.swift in Sources */,
 				36A203F323F9C0DE00C34815 /* DocumentsModelController.swift in Sources */,
 				3653019223F897D8006D80A6 /* UIAlertController+Waiting.swift in Sources */,
 				36A203EE23F9BDC000C34815 /* DocumentsService.swift in Sources */,
@@ -368,6 +397,9 @@
 				3653018C23F88F0C006D80A6 /* AuthService.swift in Sources */,
 				36B3207C23F8A3FC003E6F26 /* VKInitializing.swift in Sources */,
 				36A203E923F9A96300C34815 /* Documents.swift in Sources */,
+				36E7EE0423FB38B100E35038 /* UITableViewCell+ReuseIdentifier.swift in Sources */,
+				366F403923FB333300E1AF59 /* DocumentsViewModelConverter.swift in Sources */,
+				36E7EE0223FB359B00E35038 /* DocumentTableViewCell.swift in Sources */,
 				3653018423F88E6E006D80A6 /* Localizable.swift in Sources */,
 				369877EF23F9CFDF00B1EA26 /* UIViewController+SafeArea.swift in Sources */,
 				3653019023F897C7006D80A6 /* UIAlertController+Error.swift in Sources */,

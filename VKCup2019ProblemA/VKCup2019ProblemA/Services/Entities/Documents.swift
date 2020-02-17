@@ -18,11 +18,11 @@ struct Documents: Codable {
 // MARK: - Response
 struct Response: Codable {
     let count: Int
-    let items: [Item]
+    let items: [DocumentItem]
 }
 
 // MARK: - Item
-struct Item: Codable {
+struct DocumentItem: Codable {
     let id, ownerID: Int
     let title: String
     let size: Int
@@ -56,5 +56,4 @@ struct Photo: Codable {
     
     let sizes: [Size]
 }
-
 

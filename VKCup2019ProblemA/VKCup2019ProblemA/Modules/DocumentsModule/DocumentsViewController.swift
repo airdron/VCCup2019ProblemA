@@ -12,6 +12,7 @@ class DocumentsViewController: UIViewController {
 
     private let modelController: DocumentsModelController
     private let tableView = UITableView(frame: .zero, style: .grouped)
+    private var viewModels: [DocumentViewModel] = []
     
     init(modelController: DocumentsModelController) {
         self.modelController = modelController
@@ -26,6 +27,8 @@ class DocumentsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
+        
+        view.addSubview(tableView)
     }
     
     override func viewDidLayoutSubviews() {
@@ -34,17 +37,24 @@ class DocumentsViewController: UIViewController {
         tableView.frame.origin.y = topLayoutEdgeInset
         tableView.frame.size.width = view.bounds.width
         tableView.frame.size.height = view.bounds.height - topLayoutEdgeInset
-        
     }
 }
 
 extension DocumentsViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 0
+        return viewModels.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        return UITableViewCell()
+        let cell = tableView.dequeueReusableCell(withIdentifier: DocumentTableViewCell.reuseIdentifier,
+                                                 for: indexPath) as? DocumentTableViewCell
+        cell?.configure(viewModel: viewModels[indexPath.row])
+        
+        guard let documentCell = cell else {
+            return UITableViewCell()
+        }
+        
+        return documentCell
     }
 }
 
@@ -57,9 +67,27 @@ private extension DocumentsViewController {
     func setupUI() {
         title = L10n.documentsTitle
         view.backgroundColor = .white
+        
+        tableView.register(DocumentTableViewCell.self,
+                           forCellReuseIdentifier: DocumentTableViewCell.reuseIdentifier)
+        tableView.separatorStyle = .none
+        tableView.contentInset = Constants.tableContentInsets
     }
 }
 
 extension DocumentsViewController: DocumentsModelControllerOutput {
     
+    func didReceive(error: Error) {
+        showAlert(error: error)
+    }
+    
+    func didReceiveInitial(viewModels: [DocumentViewModel]) {
+        self.viewModels = viewModels
+        tableView.reloadData()
+    }
+}
+
+private struct Constants {
+    
+    static let tableContentInsets = UIEdgeInsets(top: 6, left: 0, bottom: 0, right: 0)
 }
