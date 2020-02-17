@@ -28,7 +28,7 @@ class DocumentTableViewCell: UITableViewCell {
         moreButton.backgroundColor = .white
         
         documentImageView.contentMode = .scaleAspectFill
-        documentImageView.image = optimizedImage(from: UIImage(named: "PlaceholderVideo")!)
+        documentImageView.image = optimizedImage(from: UIImage(named: "PlaceholderVideo"))
         documentImageView.isOpaque = true
         documentImageView.backgroundColor = .white
         
@@ -58,6 +58,6 @@ private struct Constants {
     static let horizontalMargin: CGFloat = 12
     static let verticalMargin: CGFloat = 6
     static let moreButtonSize: CGSize = CGSize(width: 48, height: 48)
-    static let moreButtonImage = optimizedImage(from: UIImage(named: "MoreIcon")!)
-    static let tagImage = optimizedImage(from: UIImage(named: "TagBadge")!)
+    static let moreButtonImage = optimizedImage(from: UIImage(named: "MoreIcon"))
+    static let tagImage = optimizedImage(from: UIImage(named: "TagBadge"))
 }

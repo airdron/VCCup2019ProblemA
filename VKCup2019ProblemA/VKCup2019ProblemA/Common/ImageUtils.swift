@@ -8,7 +8,8 @@
 
 import UIKit
 
-func optimizedImage(from image: UIImage) -> UIImage {
+func optimizedImage(from image: UIImage?) -> UIImage {
+    let image = image ?? UIImage()
     let imageSize: CGSize = image.size
     UIGraphicsBeginImageContextWithOptions(imageSize, true, UIScreen.main.scale)
     image.draw(in: CGRect(x: 0, y: 0, width: imageSize.width, height: imageSize.height))
