@@ -52,6 +52,26 @@ class DocumentTableViewCell: UITableViewCell {
     }
 }
 
+extension DocumentTableViewCell {
+    
+    class InfoView: UIView {
+        
+        override init(frame: CGRect) {
+            super.init(frame: frame)
+            initialSetup()
+        }
+        
+        @available(*, unavailable)
+        required init?(coder: NSCoder) {
+            fatalError("init(coder:) has not been implemented")
+        }
+        
+        private func initialSetup() {
+            backgroundColor = .white
+        }
+    }
+}
+
 private struct Constants {
     
     static let documentImageSize = CGSize(width: 72, height: 72)

@@ -19,7 +19,8 @@ class VKDocumentService: DocumentsService {
         
         let documentsRequset = VKRequest(method: "docs.get", parameters: [VK_API_OWNER_ID: userId,
                                                                           VK_API_OFFSET: offset,
-                                                                          VK_API_COUNT: count])
+                                                                          VK_API_COUNT: count,
+                                                                          VK_API_TAGS: 1])
         
         documentsRequset?.execute(resultBlock: { response in
             guard let responseString = response?.responseString else {

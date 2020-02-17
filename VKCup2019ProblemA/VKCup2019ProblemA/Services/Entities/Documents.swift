@@ -28,13 +28,15 @@ struct DocumentItem: Codable {
     let size: Int
     let ext: String
     let url: URL
-    let date, type: Int
+    let date: Int
+    let type: DocumentType
     let preview: Preview?
+    let tags: [String]?
 
     enum CodingKeys: String, CodingKey {
         case id
         case ownerID = "owner_id"
-        case title, size, ext, url, date, type, preview
+        case title, size, ext, url, date, type, preview, tags
     }
 }
 

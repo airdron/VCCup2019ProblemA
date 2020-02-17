@@ -75,7 +75,7 @@ extension DocumentsViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? { nil }
     
-    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat { CGFloat.leastNormalMagnitude }
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat { .leastNormalMagnitude }
     
     func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat { .leastNormalMagnitude }
 }
