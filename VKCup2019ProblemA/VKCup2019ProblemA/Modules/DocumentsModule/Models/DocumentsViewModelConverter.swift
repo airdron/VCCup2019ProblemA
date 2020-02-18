@@ -11,6 +11,6 @@ import Foundation
 class DocumentsViewModelConverter {
     
     func convert(documentItem: DocumentItem) -> DocumentViewModel {
-        return DocumentViewModel()
+        return DocumentViewModel(placeholder: documentItem.type.placeholderImage)
     }
 }

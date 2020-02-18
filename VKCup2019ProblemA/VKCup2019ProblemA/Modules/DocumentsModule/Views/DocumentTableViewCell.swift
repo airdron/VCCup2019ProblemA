@@ -24,11 +24,13 @@ class DocumentTableViewCell: UITableViewCell {
     }
     
     private func initialSetup() {
+        selectionStyle = .none
+        
         moreButton.setImage(Constants.moreButtonImage, for: .normal)
+        moreButton.setImage(Constants.moreButtonImageSelected, for: .highlighted)
         moreButton.backgroundColor = .white
         
         documentImageView.contentMode = .scaleAspectFill
-        documentImageView.image = optimizedImage(from: UIImage(named: "PlaceholderVideo"))
         documentImageView.isOpaque = true
         documentImageView.backgroundColor = .white
         
@@ -37,6 +39,7 @@ class DocumentTableViewCell: UITableViewCell {
     }
     
     func configure(viewModel: DocumentViewModel) {
+        documentImageView.image = viewModel.placeholder
         setNeedsLayout()
     }
     
@@ -78,6 +81,7 @@ private struct Constants {
     static let horizontalMargin: CGFloat = 12
     static let verticalMargin: CGFloat = 6
     static let moreButtonSize: CGSize = CGSize(width: 48, height: 48)
-    static let moreButtonImage = optimizedImage(from: UIImage(named: "MoreIcon"))
-    static let tagImage = optimizedImage(from: UIImage(named: "TagBadge"))
+    static let moreButtonImage = UIImage(named: "MoreIcon")
+    static let tagImage = UIImage(named: "TagBadge")
+    static let moreButtonImageSelected = UIImage(named: "MoreIconSelected")
 }

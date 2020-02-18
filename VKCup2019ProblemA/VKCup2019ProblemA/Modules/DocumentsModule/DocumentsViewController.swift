@@ -39,7 +39,7 @@ class DocumentsViewController: UIViewController {
         tableView.frame.origin.x = 0
         tableView.frame.origin.y = topLayoutEdgeInset
         tableView.frame.size.width = view.bounds.width
-        tableView.frame.size.height = view.bounds.height - topLayoutEdgeInset
+        tableView.frame.size.height = view.bounds.height - topLayoutEdgeInset - bottomLayoutEdgeInset
     }
 }
 
@@ -118,5 +118,5 @@ extension DocumentsViewController: DocumentsModelControllerOutput {
 
 private struct Constants {
     
-    static let tableContentInsets = UIEdgeInsets(top: 6, left: 0, bottom: 0, right: 0)
+    static let tableContentInsets = UIEdgeInsets(top: 6, left: 0, bottom: 6, right: 0)
 }

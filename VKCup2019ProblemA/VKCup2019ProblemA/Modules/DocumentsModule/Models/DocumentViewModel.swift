@@ -6,6 +6,9 @@
 //  Copyright © 2020 Andrew Oparin. All rights reserved.
 //
 
+import UIKit
+
 struct DocumentViewModel {
     
+    let placeholder: UIImage?
 }

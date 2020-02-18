@@ -16,7 +16,7 @@ class DocumentsModelController {
     
     weak var output: DocumentsModelControllerOutput?
     
-    private let pageCount = 20
+    private let pageCount = 100
     private var pageOffset = 0
     private var isLoading = false
     private var canLoadNextPage = true

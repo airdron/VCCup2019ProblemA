@@ -6,7 +6,7 @@
 //  Copyright © 2020 Andrew Oparin. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 enum DocumentType: Int, Codable {
     case text = 1
@@ -17,4 +17,28 @@ enum DocumentType: Int, Codable {
     case video
     case ebooks
     case unknown
+}
+
+extension DocumentType {
+    
+    var placeholderImage: UIImage? {
+        switch self {
+        case .text:
+            return UIImage(named: "PlaceholderText")
+        case .archives:
+            return UIImage(named: "PlaceholderZip")
+        case .gif:
+            return UIImage(named: "PlaceholderOther")
+        case .images:
+            return UIImage(named: "PlaceholderOther")
+        case .audio:
+            return UIImage(named: "PlaceholderMusic")
+        case .video:
+            return UIImage(named: "PlaceholderVideo")
+        case .ebooks:
+            return UIImage(named: "PlaceholderBook")
+        case .unknown:
+            return UIImage(named: "PlaceholderOther")
+        }
+    }
 }
