@@ -64,7 +64,7 @@ class DocumentsViewModelConverter {
     
     private func makeSubtitle(documentItem: DocumentItem) -> NSAttributedString {
         let extString = documentItem.ext.uppercased()
-        let bytesCountString = byteCountFormatter.string(fromByteCount: Int64(documentItem.size))
+        let bytesCountString = byteCountFormatter.string(fromByteCount: Int64(documentItem.size)).replacingOccurrences(of: ",", with: ".")
         
         let date = Date(timeIntervalSince1970: TimeInterval(documentItem.date))
         let dateString = dateFormatter.string(from: date)
