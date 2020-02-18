@@ -20,9 +20,8 @@ class VKDocumentService: DocumentsService {
         let documentsRequset = VKRequest(method: "docs.search", parameters: [VK_API_OWNER_ID: userId,
                                                                              VK_API_OFFSET: offset,
                                                                              VK_API_COUNT: count,
-                                                                             VK_API_TAGS: 1,
-                                                                             VK_API_Q: "Linkin"])
-        
+                                                                             "return_tags": 1,
+                                                                             VK_API_Q: "linkin"])
         documentsRequset?.execute(resultBlock: { response in
             guard let responseString = response?.responseString else {
                 return

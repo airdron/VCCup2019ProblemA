@@ -12,6 +12,7 @@ class DocumentTableViewCell: UITableViewCell {
     
     private let moreButton = UIButton()
     private let documentImageView = UIImageView()
+    private let infoView = InfoView()
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -31,15 +32,19 @@ class DocumentTableViewCell: UITableViewCell {
         moreButton.backgroundColor = .white
         
         documentImageView.contentMode = .scaleAspectFill
-        documentImageView.isOpaque = true
         documentImageView.backgroundColor = .white
         
         contentView.addSubview(moreButton)
         contentView.addSubview(documentImageView)
+        contentView.addSubview(infoView)
     }
     
     func configure(viewModel: DocumentViewModel) {
         documentImageView.image = viewModel.placeholder
+        infoView.configure(title: viewModel.title,
+                           subtitle: viewModel.subtitle,
+                           tags: viewModel.tags,
+                           titleNumberOfLines: viewModel.titleNumberOfLines)
         setNeedsLayout()
     }
     
@@ -52,12 +57,22 @@ class DocumentTableViewCell: UITableViewCell {
         documentImageView.frame.origin.x = Constants.horizontalMargin
         documentImageView.frame.size = Constants.documentImageSize
         documentImageView.center.y = contentView.center.y
+        
+        infoView.frame.origin.x = documentImageView.frame.maxX + Constants.horizontalMargin
+        infoView.frame.size.width = contentView.bounds.width - infoView.frame.origin.x - Constants.moreButtonSize.width
+        infoView.sizeToFit()
+        infoView.center.y = contentView.center.y
     }
 }
 
 extension DocumentTableViewCell {
     
     class InfoView: UIView {
+        
+        private let titleLabel = UILabel()
+        private let subtitleLabel = UILabel()
+        private let tagsLabel = UILabel()
+        private let tagImageView = UIImageView()
         
         override init(frame: CGRect) {
             super.init(frame: frame)
@@ -71,6 +86,68 @@ extension DocumentTableViewCell {
         
         private func initialSetup() {
             backgroundColor = .white
+            titleLabel.backgroundColor = .white
+            subtitleLabel.backgroundColor = .white
+            tagsLabel.backgroundColor = .white
+            
+            tagImageView.image = UIImage(named: "TagBadge")
+            
+            addSubview(titleLabel)
+            addSubview(subtitleLabel)
+            addSubview(tagsLabel)
+            addSubview(tagImageView)
+        }
+        
+        func configure(title: NSAttributedString,
+                       subtitle: NSAttributedString,
+                       tags: NSAttributedString?,
+                       titleNumberOfLines: Int) {
+            titleLabel.attributedText = title
+            subtitleLabel.attributedText = subtitle
+            tagsLabel.attributedText = tags
+            titleLabel.numberOfLines = titleNumberOfLines
+            tagImageView.isHidden = tagsLabel.attributedText == nil
+        }
+        
+        private func layout() {
+            titleLabel.frame.size.width = bounds.width
+            titleLabel.sizeToFit()
+            titleLabel.frame.size.width = bounds.width
+            
+            subtitleLabel.frame.size.width = bounds.width
+            subtitleLabel.sizeToFit()
+            subtitleLabel.frame.origin.y = titleLabel.frame.maxY + Constants.subtitleLabelTopOffset
+            subtitleLabel.frame.size.width = bounds.width
+            
+            tagImageView.frame.size = Constants.tagImageSize
+            tagImageView.frame.origin.y = subtitleLabel.frame.maxY + Constants.tagsImageTopOffset
+            
+            tagsLabel.frame.size.width = bounds.width - Constants.tagImageSize.width - Constants.tagsLabelLeftOffset
+            tagsLabel.frame.origin.y = subtitleLabel.frame.maxY + Constants.tagsLabelTopOffset
+            tagsLabel.frame.origin.x = tagImageView.frame.maxX + Constants.tagsLabelLeftOffset
+            
+            if tagsLabel.attributedText != nil {
+                tagsLabel.sizeToFit()
+                tagsLabel.frame.size.width = bounds.width - Constants.tagImageSize.width - Constants.tagsLabelLeftOffset
+            } else {
+                tagsLabel.frame.size = .zero
+            }
+        }
+        
+        override func layoutSubviews() {
+            super.layoutSubviews()
+            layout()
+        }
+        
+        override func sizeThatFits(_ size: CGSize) -> CGSize {
+            frame.size.width = size.width
+            if #available(iOS 11.0, *) {
+                frame.size.width -= (safeAreaInsets.left + safeAreaInsets.right)
+            } else {
+                // do nothing
+            }
+            layout()
+            return CGSize(width: bounds.size.width, height: tagsLabel.frame.maxY)
         }
     }
 }
@@ -84,4 +161,9 @@ private struct Constants {
     static let moreButtonImage = UIImage(named: "MoreIcon")
     static let tagImage = UIImage(named: "TagBadge")
     static let moreButtonImageSelected = UIImage(named: "MoreIconSelected")
+    static let tagImageSize = CGSize(width: 11, height: 11)
+    static let tagsLabelLeftOffset: CGFloat = 6
+    static let tagsLabelTopOffset: CGFloat = 4
+    static let tagsImageTopOffset: CGFloat = 7
+    static let subtitleLabelTopOffset: CGFloat = 3
 }

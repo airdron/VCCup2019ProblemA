@@ -13,6 +13,7 @@ class NavigationMainCoordinatorController: VKCupNavigationController {
     private let authService: AuthService
     private let authModuleContainer: AuthModuleContainer
     private let documentsModuleContainer: DocumentsModuleContainer
+    private let activityIndicator = UIActivityIndicatorView()
     
     init(authModuleContainer: AuthModuleContainer,
          documentsModuleContainer: DocumentsModuleContainer,
@@ -31,6 +32,8 @@ class NavigationMainCoordinatorController: VKCupNavigationController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
+        view.addSubview(activityIndicator)
+        activityIndicator.startAnimating()
         
         authService.authCheck { [weak self] result in
             switch result {
@@ -46,7 +49,14 @@ class NavigationMainCoordinatorController: VKCupNavigationController {
         }
     }
     
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        activityIndicator.center = view.center
+    }
+    
     private func startAuthFlow() {
+        activityIndicator.stopAnimating()
+        
         let authViewController = authModuleContainer.make()
         
         authViewController.onCompletion = { [weak self] in
@@ -57,7 +67,10 @@ class NavigationMainCoordinatorController: VKCupNavigationController {
     }
     
     private func startDocumentsFlow() {
+        activityIndicator.stopAnimating()
+        
         let viewController = documentsModuleContainer.make()
+        
         setViewControllers([viewController], animated: true)
     }
 }

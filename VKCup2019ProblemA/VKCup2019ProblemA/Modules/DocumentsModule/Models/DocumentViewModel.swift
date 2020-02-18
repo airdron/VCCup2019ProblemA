@@ -11,4 +11,8 @@ import UIKit
 struct DocumentViewModel {
     
     let placeholder: UIImage?
+    let titleNumberOfLines: Int
+    let title: NSAttributedString
+    let subtitle: NSAttributedString
+    let tags: NSAttributedString?
 }
