@@ -66,7 +66,12 @@ class DocumentsViewModelConverter {
         
         let dateString = dateConverter.documentFormatedDate(interval: TimeInterval(documentItem.date))
         
-        let subtitleString = extString + " · " + bytesCountString + " · " + dateString
+        let subtitleString: String
+        if isTextFileWithExtensionName(documentItem: documentItem) {
+            subtitleString = dateString + " · " + bytesCountString
+        } else {
+            subtitleString = extString + " · " + bytesCountString + " · " + dateString
+        }
         
         return NSAttributedString(string: subtitleString, attributes: subtitleAndTagAttributes)
     }
@@ -82,6 +87,13 @@ class DocumentsViewModelConverter {
     
     private func titleNumberOfLines(documentItem: DocumentItem) -> Int {
         return documentItem.tags?.isEmpty == false ? 1 : 2
+    }
+    
+    private func isTextFileWithExtensionName(documentItem: DocumentItem) -> Bool {
+        guard case .text = documentItem.type else { return false }
+        
+        let fileNameExtension = URL(fileURLWithPath: documentItem.title).pathExtension
+        return !fileNameExtension.isEmpty
     }
     
     func convert(documentItem: DocumentItem) -> DocumentViewModel {
