@@ -17,6 +17,10 @@ internal enum L10n {
   internal static let alertOkButton = L10n.tr("Localizable", "alert_ok_button")
   /// Wait
   internal static let alertWaitingTitle = L10n.tr("Localizable", "alert_waiting_title")
+  /// today
+  internal static let documentsDateToday = L10n.tr("Localizable", "documents_date_today")
+  /// yesterday
+  internal static let documentsDateYesterday = L10n.tr("Localizable", "documents_date_yesterday")
   /// Documents
   internal static let documentsTitle = L10n.tr("Localizable", "documents_title")
   /// Login

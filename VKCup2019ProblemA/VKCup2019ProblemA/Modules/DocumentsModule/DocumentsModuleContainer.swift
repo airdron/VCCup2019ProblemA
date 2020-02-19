@@ -17,7 +17,8 @@ class DocumentsModuleContainer {
     }
     
     func make() -> DocumentsViewController {
-        let viewModelConverter = DocumentsViewModelConverter()
+        let dateConverter = DateConverter()
+        let viewModelConverter = DocumentsViewModelConverter(dateConverter: dateConverter)
         let modelController = DocumentsModelController(viewModelConverter: viewModelConverter,
                                                        documentsService: dependencyService.resolve())
         let viewController = DocumentsViewController(modelController: modelController)

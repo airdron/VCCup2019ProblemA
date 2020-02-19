@@ -27,10 +27,12 @@ class DocumentsViewModelConverter {
     private let titleAttributes: [NSAttributedString.Key: Any]
     private let subtitleAndTagAttributes: [NSAttributedString.Key: Any]
     
-    private let dateFormatter: DateFormatter
+    private let dateConverter: DateConverter
     private let byteCountFormatter: ByteCountFormatter
     
-    init() {
+    init(dateConverter: DateConverter) {
+        self.dateConverter = dateConverter
+        
         let titleParagraph = NSMutableParagraphStyle()
         titleParagraph.minimumLineHeight = titleLineHeight
         titleParagraph.lineBreakMode = .byTruncatingTail
@@ -49,10 +51,6 @@ class DocumentsViewModelConverter {
                                     .foregroundColor: subtitleAndTagColor,
                                     .paragraphStyle: subtitleAndTagParagraph]
         
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "d MMM"
-        self.dateFormatter = dateFormatter
-        
         byteCountFormatter = ByteCountFormatter()
         byteCountFormatter.countStyle = byteCountFormatterStyle
     }
@@ -66,8 +64,7 @@ class DocumentsViewModelConverter {
         let extString = documentItem.ext.uppercased()
         let bytesCountString = byteCountFormatter.string(fromByteCount: Int64(documentItem.size)).replacingOccurrences(of: ",", with: ".")
         
-        let date = Date(timeIntervalSince1970: TimeInterval(documentItem.date))
-        let dateString = dateFormatter.string(from: date)
+        let dateString = dateConverter.documentFormatedDate(interval: TimeInterval(documentItem.date))
         
         let subtitleString = extString + " · " + bytesCountString + " · " + dateString
         

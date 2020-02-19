@@ -11,3 +11,5 @@
 "alert_error_title" = "Ошибка";
 "alert_waiting_title" = "Ожидайте";
 "documents_title" = "Документы";
+"documents_date_today" = "сегодня";
+"documents_date_yesterday" = "вчера";

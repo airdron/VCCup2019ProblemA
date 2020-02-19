@@ -11,3 +11,5 @@
 "alert_error_title" = "Error";
 "alert_waiting_title" = "Wait";
 "documents_title" = "Documents";
+"documents_date_today" = "today";
+"documents_date_yesterday" = "yesterday";

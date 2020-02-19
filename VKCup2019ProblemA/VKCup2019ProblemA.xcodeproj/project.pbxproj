@@ -17,6 +17,7 @@
 		3653019023F897C7006D80A6 /* UIAlertController+Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3653018F23F897C7006D80A6 /* UIAlertController+Error.swift */; };
 		3653019223F897D8006D80A6 /* UIAlertController+Waiting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3653019123F897D8006D80A6 /* UIAlertController+Waiting.swift */; };
 		3653019423F89A1C006D80A6 /* UIViewController+DefaultAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3653019323F89A1C006D80A6 /* UIViewController+DefaultAlert.swift */; };
+		3662E9F923FDC49F00969100 /* DateConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3662E9F823FDC49F00969100 /* DateConverter.swift */; };
 		366F403923FB333300E1AF59 /* DocumentsViewModelConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 366F403823FB333300E1AF59 /* DocumentsViewModelConverter.swift */; };
 		366F403E23FB338400E1AF59 /* DocumentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 366F403D23FB338400E1AF59 /* DocumentViewModel.swift */; };
 		369877ED23F9C75B00B1EA26 /* AuthModuleContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 369877EC23F9C75B00B1EA26 /* AuthModuleContainer.swift */; };
@@ -53,6 +54,7 @@
 		3653018F23F897C7006D80A6 /* UIAlertController+Error.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIAlertController+Error.swift"; sourceTree = "<group>"; };
 		3653019123F897D8006D80A6 /* UIAlertController+Waiting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIAlertController+Waiting.swift"; sourceTree = "<group>"; };
 		3653019323F89A1C006D80A6 /* UIViewController+DefaultAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+DefaultAlert.swift"; sourceTree = "<group>"; };
+		3662E9F823FDC49F00969100 /* DateConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateConverter.swift; sourceTree = "<group>"; };
 		366F403823FB333300E1AF59 /* DocumentsViewModelConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentsViewModelConverter.swift; sourceTree = "<group>"; };
 		366F403D23FB338400E1AF59 /* DocumentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentViewModel.swift; sourceTree = "<group>"; };
 		369877EC23F9C75B00B1EA26 /* AuthModuleContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthModuleContainer.swift; sourceTree = "<group>"; };
@@ -110,6 +112,7 @@
 				3604B7D223F8B1D800C26230 /* VKCupNavigationController.swift */,
 				369877EE23F9CFDF00B1EA26 /* UIViewController+SafeArea.swift */,
 				36E7EE0323FB38B100E35038 /* UITableViewCell+ReuseIdentifier.swift */,
+				3662E9F823FDC49F00969100 /* DateConverter.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -387,6 +390,7 @@
 			files = (
 				3604B7D323F8B1D800C26230 /* VKCupNavigationController.swift in Sources */,
 				36D669C023F863DA00F85B77 /* AuthViewController.swift in Sources */,
+				3662E9F923FDC49F00969100 /* DateConverter.swift in Sources */,
 				3653018723F88E9A006D80A6 /* Closures.swift in Sources */,
 				36A203F123F9C0AD00C34815 /* DocumentsViewController.swift in Sources */,
 				36A203F523F9C12E00C34815 /* DocumentsModuleContainer.swift in Sources */,
