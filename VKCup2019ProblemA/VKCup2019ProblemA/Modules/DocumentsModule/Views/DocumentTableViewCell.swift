@@ -10,6 +10,8 @@ import UIKit
 
 class DocumentTableViewCell: UITableViewCell {
     
+    var paginationTrigger: UUID = UUID()
+    
     private let moreButton = UIButton()
     private let documentImageView = UIImageView()
     private let infoView = InfoView()
@@ -45,6 +47,8 @@ class DocumentTableViewCell: UITableViewCell {
                            subtitle: viewModel.subtitle,
                            tags: viewModel.tags,
                            titleNumberOfLines: viewModel.titleNumberOfLines)
+        
+        paginationTrigger = viewModel.uuid
         setNeedsLayout()
     }
     

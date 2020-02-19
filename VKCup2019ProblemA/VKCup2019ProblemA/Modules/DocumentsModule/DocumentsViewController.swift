@@ -14,6 +14,7 @@ class DocumentsViewController: UIViewController {
     private let tableView = UITableView(frame: .zero, style: .grouped)
     private var viewModels: [DocumentViewModel] = []
     private let rowHeight: CGFloat = 84
+    private var paginationTrigger: UUID = UUID()
     
     init(modelController: DocumentsModelController) {
         self.modelController = modelController
@@ -79,18 +80,12 @@ extension DocumentsViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat { .leastNormalMagnitude }
     
-    func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        let pageHeight = CGFloat(modelController.pageCount) * rowHeight
-        let contentHeight = tableView.contentSize.height
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        guard let cell = cell as? DocumentTableViewCell else { return }
         
-        print("<=====")
-        print(scrollView.contentOffset.y)
-        print(pageHeight)
-        print(contentHeight)
-        print("=====>")
-        
-        if scrollView.contentOffset.y >= (contentHeight - pageHeight / 2) {
+        if cell.paginationTrigger == paginationTrigger {
             modelController.fetchDocuments()
+            paginationTrigger = UUID()
         }
     }
 }
@@ -127,6 +122,7 @@ extension DocumentsViewController: DocumentsModelControllerOutput {
     
     func didReceiveInitial(viewModels: [DocumentViewModel]) {
         self.viewModels += viewModels
+        paginationTrigger = viewModels[(0 + viewModels.count) / 2].uuid
         tableView.reloadData()
     }
 }

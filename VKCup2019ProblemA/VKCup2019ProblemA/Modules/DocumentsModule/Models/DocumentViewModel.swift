@@ -8,11 +8,12 @@
 
 import UIKit
 
-struct DocumentViewModel {
+struct DocumentViewModel: Hashable {
     
     let placeholder: UIImage?
     let titleNumberOfLines: Int
     let title: NSAttributedString
     let subtitle: NSAttributedString
     let tags: NSAttributedString?
+    let uuid: UUID = .init()
 }

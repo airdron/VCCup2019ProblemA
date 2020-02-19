@@ -18,7 +18,7 @@ class DocumentsModelController {
     
     weak var output: DocumentsModelControllerOutput?
     
-    let pageCount = 50
+    private let pageCount = 50
     private var pageOffset = 0
     private var isLoading = false
     private var canLoadNextPage = true
@@ -43,7 +43,7 @@ class DocumentsModelController {
     
     private func asyncFetchingDocuments() {
         guard canLoadNextPage, !isLoading else { return }
-        print("go")
+
         documentStartLoading()
         
         documentsService.fetchDocuments(
