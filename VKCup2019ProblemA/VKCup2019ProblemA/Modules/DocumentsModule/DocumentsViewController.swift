@@ -31,7 +31,7 @@ class DocumentsViewController: UIViewController {
         
         view.addSubview(tableView)
         
-        modelController.fetchInitialDocuments()
+        modelController.fetchDocuments()
     }
     
     override func viewDidLayoutSubviews() {
@@ -78,6 +78,21 @@ extension DocumentsViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat { .leastNormalMagnitude }
     
     func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat { .leastNormalMagnitude }
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        let pageHeight = CGFloat(modelController.pageCount) * rowHeight
+        let contentHeight = tableView.contentSize.height
+        
+        print("<=====")
+        print(scrollView.contentOffset.y)
+        print(pageHeight)
+        print(contentHeight)
+        print("=====>")
+        
+        if scrollView.contentOffset.y >= (contentHeight - pageHeight / 2) {
+            modelController.fetchDocuments()
+        }
+    }
 }
 
 private extension DocumentsViewController {
@@ -111,7 +126,7 @@ extension DocumentsViewController: DocumentsModelControllerOutput {
     }
     
     func didReceiveInitial(viewModels: [DocumentViewModel]) {
-        self.viewModels = viewModels
+        self.viewModels += viewModels
         tableView.reloadData()
     }
 }

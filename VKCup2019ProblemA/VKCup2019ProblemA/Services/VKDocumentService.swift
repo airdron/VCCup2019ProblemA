@@ -11,7 +11,7 @@ import VK_ios_sdk
 
 class VKDocumentService: DocumentsService {
         
-    func fetchDocuments(count: Int = 20, offset: Int = 0, completion: ((Result<Documents, Error>) -> Void)?) {
+    func fetchDocuments(count: Int, offset: Int, completion: ((Result<Documents, Error>) -> Void)?) {
         guard let userId = VKSdk.accessToken()?.userId else {
             print("user id is not found")
             return
@@ -21,7 +21,7 @@ class VKDocumentService: DocumentsService {
                                                                              VK_API_OFFSET: offset,
                                                                              VK_API_COUNT: count,
                                                                              "return_tags": 1,
-                                                                             VK_API_Q: "pdf"])
+                                                                             VK_API_Q: "book"])
         documentsRequset?.execute(resultBlock: { response in
             guard let responseString = response?.responseString else {
                 return
