@@ -13,3 +13,4 @@
 "documents_title" = "Документы";
 "documents_date_today" = "сегодня";
 "documents_date_yesterday" = "вчера";
+"alert_error_default_message" = "Что-то пошло не так";

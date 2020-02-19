@@ -11,6 +11,8 @@ import Foundation
 // swiftlint:disable explicit_type_interface function_parameter_count identifier_name line_length
 // swiftlint:disable nesting type_body_length type_name
 internal enum L10n {
+  /// Something wrong
+  internal static let alertErrorDefaultMessage = L10n.tr("Localizable", "alert_error_default_message")
   /// Error
   internal static let alertErrorTitle = L10n.tr("Localizable", "alert_error_title")
   /// OK

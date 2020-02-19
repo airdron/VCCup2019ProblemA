@@ -39,10 +39,16 @@ class VKDocumentService: DocumentsService {
             }
             
         }, errorBlock: { error in
-            guard let error = error else {
-                return
-            }
-            completion?(.failure(error))
+            completion?(.failure(error ?? VKDefaultError.default))
         })
+    }
+}
+
+enum VKDefaultError: Error {
+    
+    case `default`
+    
+    var localizedDescription: String {
+        L10n.alertErrorDefaultMessage
     }
 }

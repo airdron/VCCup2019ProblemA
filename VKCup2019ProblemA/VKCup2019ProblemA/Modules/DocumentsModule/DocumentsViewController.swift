@@ -117,6 +117,7 @@ private extension DocumentsViewController {
 extension DocumentsViewController: DocumentsModelControllerOutput {
     
     func didReceive(error: Error) {
+        paginationTrigger = viewModels.last?.uuid ?? UUID()
         showAlert(error: error)
     }
     

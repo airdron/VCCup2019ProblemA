@@ -13,3 +13,4 @@
 "documents_title" = "Documents";
 "documents_date_today" = "today";
 "documents_date_yesterday" = "yesterday";
+"alert_error_default_message" = "Something wrong";

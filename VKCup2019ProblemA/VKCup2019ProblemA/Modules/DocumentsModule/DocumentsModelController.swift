@@ -59,7 +59,7 @@ class DocumentsModelController {
                     self.documentsFinishLoading(with: items)
                     
                 case .failure(let error):
-                    self?.output?.didReceive(error: error)
+                    self?.documentFinishLoading(with: error)
                 }
             }
         }
@@ -80,7 +80,6 @@ class DocumentsModelController {
     
     private func documentFinishLoading(with error: Error) {
         isLoading = false
-        canLoadNextPage = false
         
         DispatchQueue.main.sync {
             self.output?.didReceive(error: error)
