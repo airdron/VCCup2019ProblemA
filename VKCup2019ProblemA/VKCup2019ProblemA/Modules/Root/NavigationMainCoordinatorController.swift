@@ -15,16 +15,19 @@ class NavigationMainCoordinatorController: VKCupNavigationController {
     private let authModuleContainer: AuthModuleContainer
     private let documentsModuleContainer: DocumentsModuleContainer
     private let documentViewerContainer: DocumentViewerContainer
+    private let documentAlertFactory: DocumentAlertFactory
     private let activityIndicator = UIActivityIndicatorView()
     
     init(authModuleContainer: AuthModuleContainer,
          documentsModuleContainer: DocumentsModuleContainer,
          documentViewerContainer: DocumentViewerContainer,
+         documentAlertFactory: DocumentAlertFactory,
          authService: AuthService) {
         self.authModuleContainer = authModuleContainer
         self.documentsModuleContainer = documentsModuleContainer
         self.documentViewerContainer = documentViewerContainer
         self.authService = authService
+        self.documentAlertFactory = documentAlertFactory
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -74,11 +77,17 @@ class NavigationMainCoordinatorController: VKCupNavigationController {
         activityIndicator.stopAnimating()
         
         let viewController = documentsModuleContainer.make()
+        let moduleInput: DocumentsModuleInput = viewController
         
         viewController.onOpen = { [weak self] url, fileExtension, fileName in
             self?.openDocumentFlow(url: url,
                                    fileExtension: fileExtension,
                                    fileName: fileName)
+        }
+        
+        viewController.onBottomSheet = { [weak self, weak moduleInput] documentIndex in
+            self?.showBottomSheet(renameHandler: { moduleInput?.renameFile(at: documentIndex) },
+                                  deleteHandler: { moduleInput?.deleteFile(at: documentIndex) })
         }
         
         setViewControllers([viewController], animated: true)
@@ -90,6 +99,15 @@ class NavigationMainCoordinatorController: VKCupNavigationController {
         let viewController = documentViewerContainer.make(url: url,
                                                           fileExtension: fileExtension,
                                                           fileName: fileName)
+        present(viewController,
+                animated: true,
+                completion: nil)
+    }
+    
+    private func showBottomSheet(renameHandler: (() -> Void)?,
+                                 deleteHandler: (() -> Void)?) {
+        let viewController = documentAlertFactory.makeBottomSheet(renameHandler: renameHandler,
+                                                                  deleteHandler: deleteHandler)
         present(viewController,
                 animated: true,
                 completion: nil)

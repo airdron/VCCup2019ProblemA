@@ -21,6 +21,10 @@ internal enum L10n {
   internal static let alertOkButton = L10n.tr("Localizable", "alert_ok_button")
   /// Wait
   internal static let alertWaitingTitle = L10n.tr("Localizable", "alert_waiting_title")
+  /// Cancel
+  internal static let cancelActionText = L10n.tr("Localizable", "cancel_action_text")
+  /// Delete document
+  internal static let deleteActionText = L10n.tr("Localizable", "delete_action_text")
   /// today
   internal static let documentsDateToday = L10n.tr("Localizable", "documents_date_today")
   /// yesterday
@@ -29,6 +33,8 @@ internal enum L10n {
   internal static let documentsTitle = L10n.tr("Localizable", "documents_title")
   /// Login
   internal static let loginButton = L10n.tr("Localizable", "login_button")
+  /// Rename
+  internal static let renameActionText = L10n.tr("Localizable", "rename_action_text")
 }
 // swiftlint:enable explicit_type_interface function_parameter_count identifier_name line_length
 // swiftlint:enable nesting type_body_length type_name

@@ -10,6 +10,8 @@ import UIKit
 
 class DocumentTableViewCell: UITableViewCell {
     
+    var onMore: (() -> Void)?
+    
     var paginationTrigger: UUID = UUID()
     
     private let moreButton = UIButton()
@@ -39,6 +41,8 @@ class DocumentTableViewCell: UITableViewCell {
         contentView.addSubview(moreButton)
         contentView.addSubview(documentImageView)
         contentView.addSubview(infoView)
+        
+        moreButton.addTarget(self, action: #selector(didTapMore), for: .touchUpInside)
     }
     
     func configure(viewModel: DocumentViewModel) {
@@ -66,6 +70,11 @@ class DocumentTableViewCell: UITableViewCell {
         infoView.frame.size.width = contentView.bounds.width - infoView.frame.origin.x - Constants.moreButtonSize.width
         infoView.sizeToFit()
         infoView.center.y = contentView.center.y
+    }
+    
+    @objc
+    private func didTapMore() {
+        onMore?()
     }
 }
 

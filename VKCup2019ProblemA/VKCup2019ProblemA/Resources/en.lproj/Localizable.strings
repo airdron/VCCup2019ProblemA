@@ -15,3 +15,6 @@
 "documents_date_yesterday" = "yesterday";
 "alert_error_default_message" = "Something wrong";
 "alert_error_unsupported_format_message" = "Unsupported file format";
+"delete_action_text" = "Delete document";
+"rename_action_text" = "Rename";
+"cancel_action_text" = "Cancel";

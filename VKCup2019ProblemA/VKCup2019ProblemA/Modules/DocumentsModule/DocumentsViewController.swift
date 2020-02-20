@@ -8,9 +8,16 @@
 
 import UIKit
 
+protocol DocumentsModuleInput: class {
+    
+    func renameFile(at index: Int)
+    func deleteFile(at index: Int)
+}
+
 class DocumentsViewController: UIViewController {
 
     var onOpen: ((_ src: URL, _ ext: String, _ name: String) -> Void)?
+    var onBottomSheet: ((_ documentIndex: Int) -> Void)?
     
     private let modelController: DocumentsModelController
     private let tableView = UITableView(frame: .zero, style: .grouped)
@@ -56,6 +63,10 @@ extension DocumentsViewController: UITableViewDataSource {
                                                  for: indexPath) as? DocumentTableViewCell
         cell?.configure(viewModel: viewModels[indexPath.row])
         
+        cell?.onMore = { [weak self] in
+            self?.onBottomSheet?(indexPath.row)
+        }
+        
         guard let documentCell = cell else {
             return UITableViewCell()
         }
@@ -96,6 +107,17 @@ extension DocumentsViewController: UITableViewDelegate {
         let ext = viewModels[indexPath.row].meta.ext
         let fileName = viewModels[indexPath.row].meta.fileName
         onOpen?(src, ext, fileName)
+    }
+}
+
+extension DocumentsViewController: DocumentsModuleInput {
+    
+    func renameFile(at index: Int) {
+        print(viewModels[index].meta.fileName)
+    }
+    
+    func deleteFile(at index: Int) {
+        print(viewModels[index].meta.fileName)
     }
 }
 

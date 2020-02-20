@@ -27,6 +27,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window?.rootViewController = NavigationMainCoordinatorController(authModuleContainer: AuthModuleContainer(dependencyService: dependencyService),
                                                                          documentsModuleContainer: DocumentsModuleContainer(dependencyService: dependencyService),
                                                                          documentViewerContainer: DocumentViewerContainer(dependencyService: dependencyService),
+                                                                         documentAlertFactory: DocumentAlertFactory(),
                                                                          authService: dependencyService.resolve())
         window?.makeKeyAndVisible()
         
