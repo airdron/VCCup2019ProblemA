@@ -7,19 +7,23 @@
 //
 
 import UIKit
+import SafariServices
 
 class NavigationMainCoordinatorController: VKCupNavigationController {
      
     private let authService: AuthService
     private let authModuleContainer: AuthModuleContainer
     private let documentsModuleContainer: DocumentsModuleContainer
+    private let documentViewerContainer: DocumentViewerContainer
     private let activityIndicator = UIActivityIndicatorView()
     
     init(authModuleContainer: AuthModuleContainer,
          documentsModuleContainer: DocumentsModuleContainer,
+         documentViewerContainer: DocumentViewerContainer,
          authService: AuthService) {
         self.authModuleContainer = authModuleContainer
         self.documentsModuleContainer = documentsModuleContainer
+        self.documentViewerContainer = documentViewerContainer
         self.authService = authService
         super.init(nibName: nil, bundle: nil)
     }
@@ -71,6 +75,23 @@ class NavigationMainCoordinatorController: VKCupNavigationController {
         
         let viewController = documentsModuleContainer.make()
         
+        viewController.onOpen = { [weak self] url, fileExtension, fileName in
+            self?.openDocumentFlow(url: url,
+                                   fileExtension: fileExtension,
+                                   fileName: fileName)
+        }
+        
         setViewControllers([viewController], animated: true)
+    }
+    
+    private func openDocumentFlow(url: URL,
+                                  fileExtension: String,
+                                  fileName: String) {
+        let viewController = documentViewerContainer.make(url: url,
+                                                          fileExtension: fileExtension,
+                                                          fileName: fileName)
+        present(viewController,
+                animated: true,
+                completion: nil)
     }
 }

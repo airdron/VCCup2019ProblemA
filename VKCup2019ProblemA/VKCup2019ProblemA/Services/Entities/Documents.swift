@@ -58,4 +58,3 @@ struct Photo: Codable {
     
     let sizes: [Size]
 }
-

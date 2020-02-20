@@ -15,6 +15,8 @@ internal enum L10n {
   internal static let alertErrorDefaultMessage = L10n.tr("Localizable", "alert_error_default_message")
   /// Error
   internal static let alertErrorTitle = L10n.tr("Localizable", "alert_error_title")
+  /// Unsupported file format
+  internal static let alertErrorUnsupportedFormatMessage = L10n.tr("Localizable", "alert_error_unsupported_format_message")
   /// OK
   internal static let alertOkButton = L10n.tr("Localizable", "alert_ok_button")
   /// Wait

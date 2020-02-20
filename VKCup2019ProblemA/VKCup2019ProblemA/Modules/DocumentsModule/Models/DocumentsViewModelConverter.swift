@@ -101,6 +101,9 @@ class DocumentsViewModelConverter {
                                  titleNumberOfLines: titleNumberOfLines(documentItem: documentItem),
                                  title: makeTitle(documentItem: documentItem),
                                  subtitle: makeSubtitle(documentItem: documentItem),
-                                 tags: makeTags(documentItem: documentItem))
+                                 tags: makeTags(documentItem: documentItem),
+                                 meta: DocumentViewModel.Meta(src: documentItem.url,
+                                                              ext: documentItem.ext,
+                                                              fileName: documentItem.title))
     }
 }

@@ -10,6 +10,8 @@ import UIKit
 
 class DocumentsViewController: UIViewController {
 
+    var onOpen: ((_ src: URL, _ ext: String, _ name: String) -> Void)?
+    
     private let modelController: DocumentsModelController
     private let tableView = UITableView(frame: .zero, style: .grouped)
     private var viewModels: [DocumentViewModel] = []
@@ -87,6 +89,13 @@ extension DocumentsViewController: UITableViewDelegate {
             modelController.fetchDocuments()
             paginationTrigger = UUID()
         }
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let src = viewModels[indexPath.row].meta.src
+        let ext = viewModels[indexPath.row].meta.ext
+        let fileName = viewModels[indexPath.row].meta.fileName
+        onOpen?(src, ext, fileName)
     }
 }
 

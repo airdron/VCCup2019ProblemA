@@ -17,6 +17,11 @@
 		3653019023F897C7006D80A6 /* UIAlertController+Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3653018F23F897C7006D80A6 /* UIAlertController+Error.swift */; };
 		3653019223F897D8006D80A6 /* UIAlertController+Waiting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3653019123F897D8006D80A6 /* UIAlertController+Waiting.swift */; };
 		3653019423F89A1C006D80A6 /* UIViewController+DefaultAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3653019323F89A1C006D80A6 /* UIViewController+DefaultAlert.swift */; };
+		365CF7F023FF1FE6006903E1 /* DownloadDocumentService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 365CF7EF23FF1FE6006903E1 /* DownloadDocumentService.swift */; };
+		365CF7F223FF1FF6006903E1 /* VKDownloadDocumentService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 365CF7F123FF1FF6006903E1 /* VKDownloadDocumentService.swift */; };
+		365CF7F723FF2FE3006903E1 /* DocumentViewerContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 365CF7F623FF2FE3006903E1 /* DocumentViewerContainer.swift */; };
+		365CF7F923FF2FF1006903E1 /* DocumentViewerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 365CF7F823FF2FF1006903E1 /* DocumentViewerViewController.swift */; };
+		365CF7FB23FF368D006903E1 /* VKDefaultError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 365CF7FA23FF368D006903E1 /* VKDefaultError.swift */; };
 		3662E9F923FDC49F00969100 /* DateConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3662E9F823FDC49F00969100 /* DateConverter.swift */; };
 		366F403923FB333300E1AF59 /* DocumentsViewModelConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 366F403823FB333300E1AF59 /* DocumentsViewModelConverter.swift */; };
 		366F403E23FB338400E1AF59 /* DocumentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 366F403D23FB338400E1AF59 /* DocumentViewModel.swift */; };
@@ -54,6 +59,11 @@
 		3653018F23F897C7006D80A6 /* UIAlertController+Error.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIAlertController+Error.swift"; sourceTree = "<group>"; };
 		3653019123F897D8006D80A6 /* UIAlertController+Waiting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIAlertController+Waiting.swift"; sourceTree = "<group>"; };
 		3653019323F89A1C006D80A6 /* UIViewController+DefaultAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+DefaultAlert.swift"; sourceTree = "<group>"; };
+		365CF7EF23FF1FE6006903E1 /* DownloadDocumentService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadDocumentService.swift; sourceTree = "<group>"; };
+		365CF7F123FF1FF6006903E1 /* VKDownloadDocumentService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VKDownloadDocumentService.swift; sourceTree = "<group>"; };
+		365CF7F623FF2FE3006903E1 /* DocumentViewerContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentViewerContainer.swift; sourceTree = "<group>"; };
+		365CF7F823FF2FF1006903E1 /* DocumentViewerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentViewerViewController.swift; sourceTree = "<group>"; };
+		365CF7FA23FF368D006903E1 /* VKDefaultError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VKDefaultError.swift; sourceTree = "<group>"; };
 		3662E9F823FDC49F00969100 /* DateConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateConverter.swift; sourceTree = "<group>"; };
 		366F403823FB333300E1AF59 /* DocumentsViewModelConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentsViewModelConverter.swift; sourceTree = "<group>"; };
 		366F403D23FB338400E1AF59 /* DocumentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentViewModel.swift; sourceTree = "<group>"; };
@@ -113,6 +123,7 @@
 				369877EE23F9CFDF00B1EA26 /* UIViewController+SafeArea.swift */,
 				36E7EE0323FB38B100E35038 /* UITableViewCell+ReuseIdentifier.swift */,
 				3662E9F823FDC49F00969100 /* DateConverter.swift */,
+				365CF7FA23FF368D006903E1 /* VKDefaultError.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -120,6 +131,7 @@
 		3653018823F88ED6006D80A6 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				365CF7F523FF2E75006903E1 /* DocumentViewerModule */,
 				36A203F823F9C25D00C34815 /* Root */,
 				36A203EF23F9C07F00C34815 /* DocumentsModule */,
 				3653018923F88EE0006D80A6 /* AuthorizationModule */,
@@ -144,8 +156,18 @@
 				3653018D23F891E2006D80A6 /* VKAuthService.swift */,
 				36B3207D23F8A475003E6F26 /* DependencyService.swift */,
 				36A203EA23F9AE6B00C34815 /* VKDocumentService.swift */,
+				365CF7F123FF1FF6006903E1 /* VKDownloadDocumentService.swift */,
 			);
 			path = Services;
+			sourceTree = "<group>";
+		};
+		365CF7F523FF2E75006903E1 /* DocumentViewerModule */ = {
+			isa = PBXGroup;
+			children = (
+				365CF7F623FF2FE3006903E1 /* DocumentViewerContainer.swift */,
+				365CF7F823FF2FF1006903E1 /* DocumentViewerViewController.swift */,
+			);
+			path = DocumentViewerModule;
 			sourceTree = "<group>";
 		};
 		366F403C23FB334C00E1AF59 /* Models */ = {
@@ -172,6 +194,7 @@
 				36B3207B23F8A3FC003E6F26 /* VKInitializing.swift */,
 				3653018B23F88F0C006D80A6 /* AuthService.swift */,
 				36A203ED23F9BDC000C34815 /* DocumentsService.swift */,
+				365CF7EF23FF1FE6006903E1 /* DownloadDocumentService.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -388,7 +411,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				365CF7F023FF1FE6006903E1 /* DownloadDocumentService.swift in Sources */,
 				3604B7D323F8B1D800C26230 /* VKCupNavigationController.swift in Sources */,
+				365CF7F723FF2FE3006903E1 /* DocumentViewerContainer.swift in Sources */,
 				36D669C023F863DA00F85B77 /* AuthViewController.swift in Sources */,
 				3662E9F923FDC49F00969100 /* DateConverter.swift in Sources */,
 				3653018723F88E9A006D80A6 /* Closures.swift in Sources */,
@@ -400,12 +425,14 @@
 				36A203EE23F9BDC000C34815 /* DocumentsService.swift in Sources */,
 				36A203EB23F9AE6B00C34815 /* VKDocumentService.swift in Sources */,
 				36B3207A23F89C1C003E6F26 /* NavigationMainCoordinatorController.swift in Sources */,
+				365CF7F923FF2FF1006903E1 /* DocumentViewerViewController.swift in Sources */,
 				3653019423F89A1C006D80A6 /* UIViewController+DefaultAlert.swift in Sources */,
 				3653018C23F88F0C006D80A6 /* AuthService.swift in Sources */,
 				36B3207C23F8A3FC003E6F26 /* VKInitializing.swift in Sources */,
 				36E7EE0623FB52E100E35038 /* DocumentType.swift in Sources */,
 				36A203E923F9A96300C34815 /* Documents.swift in Sources */,
 				36E7EE0423FB38B100E35038 /* UITableViewCell+ReuseIdentifier.swift in Sources */,
+				365CF7F223FF1FF6006903E1 /* VKDownloadDocumentService.swift in Sources */,
 				366F403923FB333300E1AF59 /* DocumentsViewModelConverter.swift in Sources */,
 				36E7EE0223FB359B00E35038 /* DocumentTableViewCell.swift in Sources */,
 				3653018423F88E6E006D80A6 /* Localizable.swift in Sources */,
@@ -415,6 +442,7 @@
 				3653018E23F891E2006D80A6 /* VKAuthService.swift in Sources */,
 				36B3207E23F8A475003E6F26 /* DependencyService.swift in Sources */,
 				36D669BC23F863DA00F85B77 /* AppDelegate.swift in Sources */,
+				365CF7FB23FF368D006903E1 /* VKDefaultError.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

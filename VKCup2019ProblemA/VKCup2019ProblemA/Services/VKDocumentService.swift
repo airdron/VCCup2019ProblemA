@@ -21,7 +21,7 @@ class VKDocumentService: DocumentsService {
                                                                              VK_API_OFFSET: offset,
                                                                              VK_API_COUNT: count,
                                                                              "return_tags": 1,
-                                                                             VK_API_Q: "book"])
+                                                                             VK_API_Q: "linkin"])
         documentsRequset?.execute(resultBlock: { response in
             guard let responseString = response?.responseString else {
                 return
@@ -41,14 +41,5 @@ class VKDocumentService: DocumentsService {
         }, errorBlock: { error in
             completion?(.failure(error ?? VKDefaultError.default))
         })
-    }
-}
-
-enum VKDefaultError: Error {
-    
-    case `default`
-    
-    var localizedDescription: String {
-        L10n.alertErrorDefaultMessage
     }
 }

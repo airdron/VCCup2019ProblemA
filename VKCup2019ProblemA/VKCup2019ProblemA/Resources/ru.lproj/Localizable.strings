@@ -14,3 +14,4 @@
 "documents_date_today" = "сегодня";
 "documents_date_yesterday" = "вчера";
 "alert_error_default_message" = "Что-то пошло не так";
+"alert_error_unsupported_format_message" = "Неподерживаемый формат файла";

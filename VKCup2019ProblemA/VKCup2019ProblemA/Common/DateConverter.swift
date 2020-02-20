@@ -52,7 +52,7 @@ final class DateConverter {
         
         if dateInfo.isIdenticalYear, dateInfo.isIdenticalMonth, dateInfo.isIdenticalDay {
             formattedDate = L10n.documentsDateToday
-        } else if dateInfo.isIdenticalYear, dateInfo.isIdenticalMonth, dateInfo.isPreviousDay  {
+        } else if dateInfo.isIdenticalYear, dateInfo.isIdenticalMonth, dateInfo.isPreviousDay {
             formattedDate = L10n.documentsDateYesterday
         } else if dateInfo.isIdenticalYear {
             formatter.dateFormat = "d MMM"
