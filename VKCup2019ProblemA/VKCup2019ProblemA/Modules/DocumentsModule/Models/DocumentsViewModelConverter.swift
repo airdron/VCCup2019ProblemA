@@ -96,12 +96,19 @@ class DocumentsViewModelConverter {
         return !fileNameExtension.isEmpty
     }
     
+    private func photoUrl(documentItem: DocumentItem) -> URL? {
+        var photo = documentItem.preview?.photo.sizes.first(where: { min($0.height, $0.width) >= Int(DocumentImageConstants.size.width) })
+        photo = photo ?? documentItem.preview?.photo.sizes.last
+        return photo?.src
+    }
+    
     func convert(documentItem: DocumentItem) -> DocumentViewModel {
         return DocumentViewModel(placeholder: documentItem.type.placeholderImage,
                                  titleNumberOfLines: titleNumberOfLines(documentItem: documentItem),
                                  title: makeTitle(documentItem: documentItem),
                                  subtitle: makeSubtitle(documentItem: documentItem),
                                  tags: makeTags(documentItem: documentItem),
+                                 photoUrl: photoUrl(documentItem: documentItem),
                                  meta: documentItem)
     }
 }

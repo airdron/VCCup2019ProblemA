@@ -112,6 +112,10 @@ extension DocumentsViewController: UITableViewDelegate {
         }
     }
     
+    func tableView(_ tableView: UITableView, didEndDisplaying cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        (cell as? DocumentTableViewCell)?.finishImageTask()
+    }
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let src = viewModels[indexPath.row].meta.url
         let ext = viewModels[indexPath.row].meta.ext

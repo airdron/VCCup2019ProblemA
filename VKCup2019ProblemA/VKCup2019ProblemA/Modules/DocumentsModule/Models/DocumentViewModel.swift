@@ -16,5 +16,6 @@ struct DocumentViewModel {
     let subtitle: NSAttributedString
     let tags: NSAttributedString?
     let uuid: UUID = .init()
+    let photoUrl: URL?
     let meta: DocumentItem
 }

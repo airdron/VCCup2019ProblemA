@@ -7,13 +7,14 @@
 //
 
 import UIKit
+import Kingfisher
 
 class DocumentTableViewCell: UITableViewCell {
     
     var onMore: Action?
     
     var paginationTrigger: UUID = UUID()
-    
+        
     private let moreButton = UIButton()
     private let documentImageView = UIImageView()
     private let infoView = InfoView()
@@ -35,9 +36,8 @@ class DocumentTableViewCell: UITableViewCell {
         moreButton.setImage(Constants.moreButtonImageSelected, for: .highlighted)
         moreButton.backgroundColor = .white
         
-        documentImageView.contentMode = .scaleAspectFill
         documentImageView.backgroundColor = .white
-        
+
         contentView.addSubview(moreButton)
         contentView.addSubview(documentImageView)
         contentView.addSubview(infoView)
@@ -53,6 +53,15 @@ class DocumentTableViewCell: UITableViewCell {
                            titleNumberOfLines: viewModel.titleNumberOfLines)
         
         paginationTrigger = viewModel.uuid
+        documentImageView.kf.setImage(with: viewModel.photoUrl,
+                                      placeholder: viewModel.placeholder,
+                                      options: [
+                                        .processor(DocumentImageConstants.imageProcessor),
+                                        .scaleFactor(UIScreen.main.scale),
+                                        .transition(.fade(0.2)),
+                                        .cacheMemoryOnly
+                                       ])
+                                        
         setNeedsLayout()
     }
     
@@ -75,6 +84,10 @@ class DocumentTableViewCell: UITableViewCell {
     @objc
     private func didTapMore() {
         onMore?()
+    }
+    
+    func finishImageTask() {
+        documentImageView.kf.cancelDownloadTask()
     }
 }
 
@@ -167,7 +180,7 @@ extension DocumentTableViewCell {
 
 private struct Constants {
     
-    static let documentImageSize = CGSize(width: 72, height: 72)
+    static let documentImageSize = DocumentImageConstants.size
     static let horizontalMargin: CGFloat = 12
     static let verticalMargin: CGFloat = 6
     static let moreButtonSize: CGSize = CGSize(width: 48, height: 48)
@@ -179,4 +192,5 @@ private struct Constants {
     static let tagsLabelTopOffset: CGFloat = 4
     static let tagsImageTopOffset: CGFloat = 7
     static let subtitleLabelTopOffset: CGFloat = 3
+    static let documentImageCornerRadius: CGFloat = DocumentImageConstants.cornerRadius
 }

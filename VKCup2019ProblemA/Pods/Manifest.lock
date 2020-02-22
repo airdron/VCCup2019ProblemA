@@ -1,16 +1,22 @@
 PODS:
+  - Kingfisher (5.13.1):
+    - Kingfisher/Core (= 5.13.1)
+  - Kingfisher/Core (5.13.1)
   - VK-ios-sdk (1.5.1)
 
 DEPENDENCIES:
+  - Kingfisher
   - VK-ios-sdk
 
 SPEC REPOS:
   trunk:
+    - Kingfisher
     - VK-ios-sdk
 
 SPEC CHECKSUMS:
+  Kingfisher: f33a848445e33c543620812158dc5d47f6bf90df
   VK-ios-sdk: 62a10b6571fbcda0657f455fedce7fedf55b4cd0
 
-PODFILE CHECKSUM: c96c8ac3ef044e4cb03d5f17abc16a4ce141ea3e
+PODFILE CHECKSUM: dd094f70a7d999af7900b5b87b7c9d9eef79dd1d
 
 COCOAPODS: 1.8.4
