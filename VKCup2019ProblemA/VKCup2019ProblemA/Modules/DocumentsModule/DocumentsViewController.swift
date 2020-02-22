@@ -20,13 +20,17 @@ class DocumentsViewController: UIViewController {
     var onBottomSheet: ((_ documentIndex: Int) -> Void)?
     
     private let pagingController: DocumentsPagingController
+    private let deletingController: DocumentsDeletingController
+    
     private let tableView = UITableView(frame: .zero, style: .grouped)
     private var viewModels: [DocumentViewModel] = []
-    private let rowHeight: CGFloat = 84
+    
     private var paginationTrigger: UUID = UUID()
     
-    init(pagingController: DocumentsPagingController) {
+    init(pagingController: DocumentsPagingController,
+         deletingController: DocumentsDeletingController) {
         self.pagingController = pagingController
+        self.deletingController = deletingController
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -78,11 +82,11 @@ extension DocumentsViewController: UITableViewDataSource {
 extension DocumentsViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        rowHeight
+        Constants.rowHeight
     }
     
     func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
-        rowHeight
+        Constants.rowHeight
     }
     
     func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? { nil }
@@ -117,7 +121,8 @@ extension DocumentsViewController: DocumentsModuleInput {
     }
     
     func deleteFile(at index: Int) {
-        print(viewModels[index].meta.fileName)
+        deletingController.deleteDocument(id: viewModels[index].meta.id,
+                                          index: index)
     }
 }
 
@@ -142,6 +147,20 @@ private extension DocumentsViewController {
         
         tableView.delegate = self
         tableView.dataSource = self
+    }
+}
+
+extension DocumentsViewController: DocumentsDeletingControllerOutput {
+    
+    func documentsDeletingControllerDidReceive(error: Error) {
+        showAlert(error: error)
+    }
+    
+    func documentsDeletingControllerDidDeleteDocument(at index: Int) {
+        viewModels.remove(at: index)
+        tableView.beginUpdates()
+        tableView.deleteRows(at: [IndexPath(row: index, section: 0)], with: .automatic)
+        tableView.endUpdates()
     }
 }
 
@@ -178,4 +197,5 @@ extension DocumentsViewController: DocumentsPagingControllerOutput {
 private struct Constants {
     
     static let tableContentInsets = UIEdgeInsets(top: 6, left: 0, bottom: 6, right: 0)
+    static let rowHeight: CGFloat = 84
 }

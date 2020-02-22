@@ -9,6 +9,7 @@
 class DependencyService {
     
     private let vkAuthService = VKAuthService()
+    private let documentsService = VKDocumentService()
     
     func resolve() -> VKInitializing {
         return vkAuthService
@@ -19,10 +20,14 @@ class DependencyService {
     }
     
     func resolve() -> DocumentDownloading {
-        return VKDocumentService()
+        return documentsService
     }
     
     func resolve() -> DocumentsLoading {
-        return VKDocumentService()
+        return documentsService
+    }
+    
+    func resolve() -> DocumentDeleting {
+        return documentsService
     }
 }

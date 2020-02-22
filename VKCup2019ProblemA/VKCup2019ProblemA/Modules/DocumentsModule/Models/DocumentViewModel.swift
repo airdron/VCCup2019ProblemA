@@ -22,5 +22,6 @@ struct DocumentViewModel {
         var src: URL
         var ext: String
         var fileName: String
+        var id: Int
     }
 }

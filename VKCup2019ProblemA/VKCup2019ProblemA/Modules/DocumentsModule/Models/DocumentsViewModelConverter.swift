@@ -104,6 +104,7 @@ class DocumentsViewModelConverter {
                                  tags: makeTags(documentItem: documentItem),
                                  meta: DocumentViewModel.Meta(src: documentItem.url,
                                                               ext: documentItem.ext,
-                                                              fileName: documentItem.title))
+                                                              fileName: documentItem.title,
+                                                              id: documentItem.id))
     }
 }

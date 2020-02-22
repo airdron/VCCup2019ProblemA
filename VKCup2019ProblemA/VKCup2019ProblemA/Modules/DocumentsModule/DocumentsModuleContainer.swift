@@ -23,8 +23,14 @@ class DocumentsModuleContainer {
         let pagingController = DocumentsPagingController(viewModelConverter: viewModelConverter,
                                                          documentsService: dependencyService.resolve(),
                                                          loadingQueue: loadingQueue)
-        let viewController = DocumentsViewController(pagingController: pagingController)
+        
+        let deletingController = DocumentsDeletingController(viewModelConverter: viewModelConverter,
+                                                             documentsService: dependencyService.resolve(),
+                                                             loadingQueue: loadingQueue)
+        let viewController = DocumentsViewController(pagingController: pagingController,
+                                                     deletingController: deletingController)
         pagingController.output = viewController
+        deletingController.output = viewController
         return viewController
     }
 }
