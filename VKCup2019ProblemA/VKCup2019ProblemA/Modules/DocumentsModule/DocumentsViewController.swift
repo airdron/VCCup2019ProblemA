@@ -213,17 +213,22 @@ extension DocumentsViewController: DocumentsPagingControllerOutput {
         paginationTrigger = viewModels[(0 + viewModels.count) / 2].uuid
         tableView.reloadData()
     }
-   
-//    mb better
+ 
+// mb better
 //    private func handle(viewModels: [DocumentViewModel]) {
+//        let isInitial = self.viewModels.isEmpty
 //        let previousCount = self.viewModels.count
 //        self.viewModels += viewModels
 //        paginationTrigger = viewModels[(0 + viewModels.count) / 2].uuid
 //        let newCount = self.viewModels.count
 //
-//        tableView.beginUpdates()
-//        tableView.insertRows(at: (previousCount..<newCount).map { IndexPath(row: $0, section: 0) }, with: .none)
-//        tableView.endUpdates()
+//        if isInitial {
+//            tableView.reloadData()
+//        } else {
+//            tableView.beginUpdates()
+//            tableView.insertRows(at: (previousCount..<newCount).map { IndexPath(row: $0, section: 0) }, with: .none)
+//            tableView.endUpdates()
+//        }
 //    }
 }
 
