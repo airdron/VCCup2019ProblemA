@@ -27,6 +27,8 @@ class DocumentsViewController: UIViewController {
     
     private var paginationTrigger: UUID = UUID()
     
+    private let waitingAlertController = UIAlertController.makeWaiting()
+    
     init(pagingController: DocumentsPagingController,
          deletingController: DocumentsDeletingController) {
         self.pagingController = pagingController
@@ -122,6 +124,8 @@ extension DocumentsViewController: DocumentsModuleInput {
     }
     
     func deleteFile(at index: Int) {
+        present(waitingAlertController, animated: true, completion: nil)
+        
         deletingController.deleteDocument(id: viewModels[index].meta.id,
                                           index: index)
     }
@@ -154,10 +158,12 @@ private extension DocumentsViewController {
 extension DocumentsViewController: DocumentsDeletingControllerOutput {
     
     func documentsDeletingControllerDidReceive(error: Error) {
+        waitingAlertController.dismiss(animated: false, completion: nil)
         showAlert(error: error)
     }
     
     func documentsDeletingControllerDidDeleteDocument(at index: Int) {
+        waitingAlertController.dismiss(animated: true, completion: nil)
         viewModels.remove(at: index)
         tableView.beginUpdates()
         tableView.deleteRows(at: [IndexPath(row: index, section: 0)], with: .automatic)

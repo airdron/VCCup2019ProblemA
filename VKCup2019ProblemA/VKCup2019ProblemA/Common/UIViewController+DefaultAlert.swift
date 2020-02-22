@@ -14,9 +14,4 @@ extension UIViewController {
         let alertController = UIAlertController.make(with: error)
         present(alertController, animated: animated, completion: completion)
     }
-    
-    func showWaitingAlert(animated: Bool = true, completion: Action? = nil) {
-        let alertController = UIAlertController.makeWaiting()
-        present(alertController, animated: animated, completion: completion)
-    }
 }
