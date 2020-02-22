@@ -16,12 +16,5 @@ struct DocumentViewModel {
     let subtitle: NSAttributedString
     let tags: NSAttributedString?
     let uuid: UUID = .init()
-    let meta: Meta
-    
-    struct Meta {
-        var src: URL
-        var ext: String
-        var fileName: String
-        var id: Int
-    }
+    let meta: DocumentItem
 }

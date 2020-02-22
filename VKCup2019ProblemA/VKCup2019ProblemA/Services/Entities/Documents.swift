@@ -32,6 +32,19 @@ struct DocumentItem: Codable {
     let type: DocumentType
     let preview: Preview?
     let tags: [String]?
+    
+    func updated(with newFileName: String) -> DocumentItem {
+        return DocumentItem(id: id,
+                            ownerID: ownerID,
+                            title: newFileName,
+                            size: size,
+                            ext: ext,
+                            url: url,
+                            date: date,
+                            type: type,
+                            preview: preview,
+                            tags: tags)
+    }
 
     enum CodingKeys: String, CodingKey {
         case id

@@ -21,6 +21,7 @@ class DocumentsViewController: UIViewController {
     
     private let pagingController: DocumentsPagingController
     private let deletingController: DocumentsDeletingController
+    private let renamingController: DocumentsRenamingController
     
     private let tableView = UITableView(frame: .zero, style: .grouped)
     private var viewModels: [DocumentViewModel] = []
@@ -30,9 +31,11 @@ class DocumentsViewController: UIViewController {
     private let waitingAlertController = UIAlertController.makeWaiting()
     
     init(pagingController: DocumentsPagingController,
-         deletingController: DocumentsDeletingController) {
+         deletingController: DocumentsDeletingController,
+         renamingController: DocumentsRenamingController) {
         self.pagingController = pagingController
         self.deletingController = deletingController
+        self.renamingController = renamingController
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -69,7 +72,7 @@ extension DocumentsViewController: UITableViewDataSource {
                                                  for: indexPath) as? DocumentTableViewCell
         cell?.configure(viewModel: viewModels[indexPath.row])
         
-        let fileName = viewModels[indexPath.row].meta.fileName
+        let fileName = viewModels[indexPath.row].meta.title
         cell?.onMore = { [weak self] in
             self?.onBottomSheet?(fileName, indexPath.row)
         }
@@ -110,9 +113,9 @@ extension DocumentsViewController: UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let src = viewModels[indexPath.row].meta.src
+        let src = viewModels[indexPath.row].meta.url
         let ext = viewModels[indexPath.row].meta.ext
-        let fileName = viewModels[indexPath.row].meta.fileName
+        let fileName = viewModels[indexPath.row].meta.title
         onOpen?(src, ext, fileName)
     }
 }
@@ -120,7 +123,10 @@ extension DocumentsViewController: UITableViewDelegate {
 extension DocumentsViewController: DocumentsModuleInput {
     
     func renameFile(at index: Int, with newName: String) {
-        print(viewModels[index].meta.fileName)
+        present(waitingAlertController, animated: true, completion: nil)
+        
+        let viewModel = viewModels[index]
+        renamingController.rename(documentItem: viewModel.meta, newFileName: newName, index: index)
     }
     
     func deleteFile(at index: Int) {
@@ -168,6 +174,23 @@ extension DocumentsViewController: DocumentsDeletingControllerOutput {
         tableView.beginUpdates()
         tableView.deleteRows(at: [IndexPath(row: index, section: 0)], with: .automatic)
         tableView.endUpdates()
+    }
+}
+
+extension DocumentsViewController: DocumentsRenamingControllerOutput {
+    
+    func documentsRenamingControllerDidReceive(error: Error) {
+        waitingAlertController.dismiss(animated: false, completion: nil)
+        showAlert(error: error)
+    }
+    
+    func documentsRenamingControllerDidRenameDocument(viewModel: DocumentViewModel, at index: Int) {
+        waitingAlertController.dismiss(animated: true, completion: nil)
+        viewModels[index] = viewModel
+        guard let cell = tableView.cellForRow(at: IndexPath(row: index, section: 0)) as? DocumentTableViewCell else {
+            return
+        }
+        cell.configure(viewModel: viewModel)
     }
 }
 

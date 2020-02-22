@@ -30,4 +30,8 @@ class DependencyService {
     func resolve() -> DocumentDeleting {
         return documentsService
     }
+    
+    func resolve() -> DocumentRenaming {
+        return documentsService
+    }
 }

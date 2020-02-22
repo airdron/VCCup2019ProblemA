@@ -45,7 +45,7 @@ private extension DocumentsDeletingController {
                     if deletionSuccess {
                         self?.output?.documentsDeletingControllerDidDeleteDocument(at: index)
                     } else {
-                        // do nothig ?
+                        self?.output?.documentsDeletingControllerDidReceive(error: VKDefaultError.default)
                     }
                 case .failure(let error):
                     self?.output?.documentsDeletingControllerDidReceive(error: error)
