@@ -127,6 +127,13 @@ extension DocumentsViewController: UITableViewDelegate {
     }
 }
 
+extension DocumentsViewController: UITableViewDataSourcePrefetching {
+    
+    func tableView(_ tableView: UITableView, prefetchRowsAt indexPaths: [IndexPath]) {
+        pagingController.loadImages(urls: indexPaths.map { self.viewModels[$0.row].photoUrl })
+    }
+}
+
 extension DocumentsViewController: DocumentsModuleInput {
     
     func renameFile(at index: Int, with newName: String) {
@@ -165,6 +172,7 @@ private extension DocumentsViewController {
         
         tableView.delegate = self
         tableView.dataSource = self
+        tableView.prefetchDataSource = self
     }
 }
 

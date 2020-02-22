@@ -55,13 +55,7 @@ class DocumentTableViewCell: UITableViewCell {
         paginationTrigger = viewModel.uuid
         documentImageView.kf.setImage(with: viewModel.photoUrl,
                                       placeholder: viewModel.placeholder,
-                                      options: [
-                                        .processor(DocumentImageConstants.imageProcessor),
-                                        .scaleFactor(UIScreen.main.scale),
-                                        .transition(.fade(0.2)),
-                                        .cacheMemoryOnly
-                                       ])
-                                        
+                                      options: DocumentImageConstants.options)
         setNeedsLayout()
     }
     

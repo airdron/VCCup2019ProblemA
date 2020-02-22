@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import Kingfisher
 
 protocol DocumentsPagingControllerOutput: class {
     
@@ -25,7 +26,6 @@ class DocumentsPagingController {
         
     private let documentsService: DocumentsLoading
     private let viewModelConverter: DocumentsViewModelConverter
-    
     private let loadingQueue: DispatchQueue
     
     init(viewModelConverter: DocumentsViewModelConverter,
@@ -39,6 +39,12 @@ class DocumentsPagingController {
     func fetchDocuments() {
         loadingQueue.async {
             self.asyncFetchingDocuments()
+        }
+    }
+    
+    func loadImages(urls: [URL?]) {
+        loadingQueue.async {
+            ImagePrefetcher(resources: urls.compactMap { $0 }, options: DocumentImageConstants.options).start()
         }
     }
 }
