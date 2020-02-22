@@ -167,8 +167,9 @@ private extension DocumentsViewController {
 extension DocumentsViewController: DocumentsDeletingControllerOutput {
     
     func documentsDeletingControllerDidReceive(error: Error) {
-        waitingAlertController.dismiss(animated: false, completion: nil)
-        showAlert(error: error)
+        waitingAlertController.dismiss(animated: false) {
+            self.showAlert(error: error)
+        }
     }
     
     func documentsDeletingControllerDidDeleteDocument(at index: Int) {
@@ -183,8 +184,9 @@ extension DocumentsViewController: DocumentsDeletingControllerOutput {
 extension DocumentsViewController: DocumentsRenamingControllerOutput {
     
     func documentsRenamingControllerDidReceive(error: Error) {
-        waitingAlertController.dismiss(animated: false, completion: nil)
-        showAlert(error: error)
+        waitingAlertController.dismiss(animated: false) {
+            self.showAlert(error: error)
+        }
     }
     
     func documentsRenamingControllerDidRenameDocument(viewModel: DocumentViewModel, at index: Int) {
