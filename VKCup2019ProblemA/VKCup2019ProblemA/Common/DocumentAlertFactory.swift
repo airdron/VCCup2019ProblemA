@@ -36,8 +36,8 @@ class DocumentAlertFactory {
     }
     
     func makeRenamingAlert(title: String, completion: ((String) -> Void)?) -> UIAlertController {
-        return UIAlertController.makeTextField(title: L10n.renamingAlertTitle,
-                                               message: L10n.renamingAlertMessage(title),
-                                               completion: completion)
+        return RenameAlertController.makeTextField(title: L10n.renamingAlertTitle,
+                                                   message: L10n.renamingAlertMessage(title),
+                                                   completion: completion)  
     }
 }

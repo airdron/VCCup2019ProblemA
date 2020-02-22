@@ -8,13 +8,15 @@
 
 import UIKit
 
-extension UIAlertController {
+class RenameAlertController: UIAlertController {
     
-    static func makeTextField(title: String, message: String, completion: ((String) -> Void)?) -> UIAlertController {
-        let alertController = UIAlertController(title: title,
-                                                message: message,
-                                                preferredStyle: .alert)
-        alertController.addTextField(configurationHandler: nil)
+    static func makeTextField(title: String, message: String, completion: ((String) -> Void)?) -> RenameAlertController {
+        let alertController = RenameAlertController(title: title,
+                                                    message: message,
+                                                    preferredStyle: .alert)
+        alertController.addTextField { textField in
+            textField.addTarget(alertController, action: #selector(didChangeText), for: .editingChanged)
+        }
         
         let okAction = UIAlertAction(title: L10n.alertOkButton,
                                      style: .default) { [weak alertController] _ in
@@ -27,6 +29,13 @@ extension UIAlertController {
                                          handler: nil)
         alertController.addAction(okAction)
         alertController.addAction(cancelAction)
+        okAction.isEnabled = false
         return alertController
+    }
+    
+    @objc
+    func didChangeText() {
+        let okAction = self.actions.first(where: { $0.style == .default })
+        okAction?.isEnabled = textFields?.first?.text?.isEmpty == false
     }
 }

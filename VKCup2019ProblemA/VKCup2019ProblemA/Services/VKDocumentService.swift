@@ -21,6 +21,7 @@ class VKDocumentService: DocumentsLoading {
                                                                              VK_API_OFFSET: offset,
                                                                              VK_API_COUNT: count,
                                                                              "return_tags": 1])
+                                                                             //VK_API_Q: "linkin"])
         documentsRequset?.execute(resultBlock: { response in
             guard let responseString = response?.responseString else {
                 return
