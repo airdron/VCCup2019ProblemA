@@ -10,7 +10,7 @@ import UIKit
 
 class DocumentTableViewCell: UITableViewCell {
     
-    var onMore: (() -> Void)?
+    var onMore: Action?
     
     var paginationTrigger: UUID = UUID()
     

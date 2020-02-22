@@ -10,8 +10,8 @@ import UIKit
 
 class DocumentAlertFactory {
     
-    func makeBottomSheet(renameHandler: (() -> Void)?,
-                         deleteHandler: (() -> Void)?) -> UIAlertController {
+    func makeBottomSheet(renameHandler: Action?,
+                         deleteHandler: Action?) -> UIAlertController {
         let renameAction = UIAlertAction(title: L10n.renameActionText,
                                          style: .default) { _ in
                             renameHandler?()

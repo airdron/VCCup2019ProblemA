@@ -13,8 +13,6 @@ import VK_ios_sdk
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-
-    // https://vk.com/dev/docs.get?params[count]=0&params[offset]=0&params[type]=0&params[owner_id]=12658215&params[return_tags]=0&params[v]=5.103
     
     private let dependencyService = DependencyService()
     private lazy var vkInitialization: VKInitializing = dependencyService.resolve()

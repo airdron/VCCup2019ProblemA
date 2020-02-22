@@ -104,8 +104,8 @@ class NavigationMainCoordinatorController: VKCupNavigationController {
                 completion: nil)
     }
     
-    private func showBottomSheet(renameHandler: (() -> Void)?,
-                                 deleteHandler: (() -> Void)?) {
+    private func showBottomSheet(renameHandler: Action?,
+                                 deleteHandler: Action?) {
         let viewController = documentAlertFactory.makeBottomSheet(renameHandler: renameHandler,
                                                                   deleteHandler: deleteHandler)
         present(viewController,
