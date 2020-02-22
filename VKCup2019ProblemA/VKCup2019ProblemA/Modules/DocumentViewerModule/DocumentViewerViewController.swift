@@ -8,8 +8,6 @@
 
 import UIKit
 import QuickLook
-import SafariServices
-import WebKit
 
 private class FilePreviewItem: NSObject, QLPreviewItem {
     
@@ -31,14 +29,14 @@ class DocumentViewerViewController: QLPreviewController, QLPreviewControllerData
     
     private var fileItem: QLPreviewItem = FilePreviewItem()
     
-    private let downloadDocumentService: DownloadDocumentService
+    private let downloadDocumentService: DocumentDownloading
     
     private let activityIndicator = UIActivityIndicatorView()
 
     public init(url: URL,
                 fileExtension: String,
                 fileName: String,
-                downloadDocumentService: DownloadDocumentService) {
+                downloadDocumentService: DocumentDownloading) {
         self.url = url
         self.fileExtension = fileExtension
         self.fileName = fileName

@@ -19,14 +19,14 @@ class DocumentsViewController: UIViewController {
     var onOpen: ((_ src: URL, _ ext: String, _ name: String) -> Void)?
     var onBottomSheet: ((_ documentIndex: Int) -> Void)?
     
-    private let modelController: DocumentsModelController
+    private let pagingController: DocumentsPagingController
     private let tableView = UITableView(frame: .zero, style: .grouped)
     private var viewModels: [DocumentViewModel] = []
     private let rowHeight: CGFloat = 84
     private var paginationTrigger: UUID = UUID()
     
-    init(modelController: DocumentsModelController) {
-        self.modelController = modelController
+    init(pagingController: DocumentsPagingController) {
+        self.pagingController = pagingController
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -41,7 +41,7 @@ class DocumentsViewController: UIViewController {
         
         view.addSubview(tableView)
         
-        modelController.fetchDocuments()
+        pagingController.fetchDocuments()
     }
     
     override func viewDidLayoutSubviews() {
@@ -97,7 +97,7 @@ extension DocumentsViewController: UITableViewDelegate {
         guard let cell = cell as? DocumentTableViewCell else { return }
         
         if cell.paginationTrigger == paginationTrigger {
-            modelController.fetchDocuments()
+            pagingController.fetchDocuments()
             paginationTrigger = UUID()
         }
     }
@@ -145,14 +145,14 @@ private extension DocumentsViewController {
     }
 }
 
-extension DocumentsViewController: DocumentsModelControllerOutput {
+extension DocumentsViewController: DocumentsPagingControllerOutput {
     
-    func didReceive(error: Error) {
+    func documentsPagingControllerDidReceive(error: Error) {
         paginationTrigger = viewModels.last?.uuid ?? UUID()
         showAlert(error: error)
     }
     
-    func didReceiveInitial(viewModels: [DocumentViewModel]) {
+    func documentsPagingControllerDidReceive(viewModels: [DocumentViewModel]) {
         handle(viewModels: viewModels)
     }
     

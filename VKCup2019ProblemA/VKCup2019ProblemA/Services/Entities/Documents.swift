@@ -58,3 +58,7 @@ struct Photo: Codable {
     
     let sizes: [Size]
 }
+
+struct OperationResult: Codable {
+    let response: Int
+}

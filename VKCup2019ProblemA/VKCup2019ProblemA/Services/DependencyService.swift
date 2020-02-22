@@ -18,11 +18,11 @@ class DependencyService {
         return vkAuthService
     }
     
-    func resolve() -> DocumentsService {
+    func resolve() -> DocumentDownloading {
         return VKDocumentService()
     }
     
-    func resolve() -> DownloadDocumentService {
-        return VKDownloadDocumentService()
+    func resolve() -> DocumentsLoading {
+        return VKDocumentService()
     }
 }

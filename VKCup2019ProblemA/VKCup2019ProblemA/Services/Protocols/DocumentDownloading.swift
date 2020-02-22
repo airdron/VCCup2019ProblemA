@@ -1,5 +1,5 @@
 //
-//  DownloadDocumentService.swift
+//  DocumentDownloading.swift
 //  VKCup2019ProblemA
 //
 //  Created by Andrew Oparin on 20.02.2020.
@@ -8,7 +8,7 @@
 
 import Foundation
 
-protocol DownloadDocumentService {
+protocol DocumentDownloading {
     
     func downloadDocument(by url: URL,
                           fileExtension: String,

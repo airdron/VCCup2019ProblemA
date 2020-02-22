@@ -1,5 +1,5 @@
 //
-//  DocumentsModelController.swift
+//  DocumentsPagingController.swift
 //  VKCup2019ProblemA
 //
 //  Created by Andrew Oparin on 16.02.2020.
@@ -8,31 +8,32 @@
 
 import Foundation
 
-protocol DocumentsModelControllerOutput: class {
+protocol DocumentsPagingControllerOutput: class {
     
-    func didReceiveInitial(viewModels: [DocumentViewModel])
-    func didReceive(error: Error)
+    func documentsPagingControllerDidReceive(viewModels: [DocumentViewModel])
+    func documentsPagingControllerDidReceive(error: Error)
 }
 
-class DocumentsModelController {
+class DocumentsPagingController {
     
-    weak var output: DocumentsModelControllerOutput?
+    weak var output: DocumentsPagingControllerOutput?
     
     private let pageCount = 50
     private var pageOffset = 0
     private var isLoading = false
     private var canLoadNextPage = true
         
-    private let documentsService: DocumentsService
+    private let documentsService: DocumentsLoading
     private let viewModelConverter: DocumentsViewModelConverter
     
-    private let dispatchGroup = DispatchGroup()
-    private let loadingQueue = DispatchQueue(label: "vkcup.document.serial.queue", qos: .userInitiated)
+    private let loadingQueue: DispatchQueue
     
     init(viewModelConverter: DocumentsViewModelConverter,
-         documentsService: DocumentsService) {
+         documentsService: DocumentsLoading,
+         loadingQueue: DispatchQueue) {
         self.documentsService = documentsService
         self.viewModelConverter = viewModelConverter
+        self.loadingQueue = loadingQueue
     }
     
     func fetchDocuments() {
@@ -40,8 +41,12 @@ class DocumentsModelController {
             self.asyncFetchingDocuments()
         }
     }
+}
+
+// MARK: - pagination
+private extension DocumentsPagingController {
     
-    private func asyncFetchingDocuments() {
+    func asyncFetchingDocuments() {
         guard canLoadNextPage, !isLoading else { return }
 
         documentStartLoading()
@@ -65,24 +70,24 @@ class DocumentsModelController {
         }
     }
     
-    private func documentStartLoading() {
+    func documentStartLoading() {
         isLoading = true
     }
     
-    private func documentsFinishLoading(with items: [DocumentItem]) {
+    func documentsFinishLoading(with items: [DocumentItem]) {
         DispatchQueue.main.sync {
-            self.output?.didReceiveInitial(viewModels: items.map(self.viewModelConverter.convert))
+            self.output?.documentsPagingControllerDidReceive(viewModels: items.map(self.viewModelConverter.convert))
         }
         isLoading = false
         pageOffset += pageCount
         canLoadNextPage = items.count == pageCount
     }
     
-    private func documentFinishLoading(with error: Error) {
+    func documentFinishLoading(with error: Error) {
         isLoading = false
         
         DispatchQueue.main.sync {
-            self.output?.didReceive(error: error)
+            self.output?.documentsPagingControllerDidReceive(error: error)
         }
     }
 }

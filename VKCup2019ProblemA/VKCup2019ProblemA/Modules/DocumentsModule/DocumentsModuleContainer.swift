@@ -17,12 +17,14 @@ class DocumentsModuleContainer {
     }
     
     func make() -> DocumentsViewController {
+        let loadingQueue = DispatchQueue(label: "vkcup.document.serial.queue", qos: .userInitiated)
         let dateConverter = DateConverter()
         let viewModelConverter = DocumentsViewModelConverter(dateConverter: dateConverter)
-        let modelController = DocumentsModelController(viewModelConverter: viewModelConverter,
-                                                       documentsService: dependencyService.resolve())
-        let viewController = DocumentsViewController(modelController: modelController)
-        modelController.output = viewController
+        let pagingController = DocumentsPagingController(viewModelConverter: viewModelConverter,
+                                                         documentsService: dependencyService.resolve(),
+                                                         loadingQueue: loadingQueue)
+        let viewController = DocumentsViewController(pagingController: pagingController)
+        pagingController.output = viewController
         return viewController
     }
 }
