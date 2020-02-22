@@ -17,11 +17,12 @@
 		3653019023F897C7006D80A6 /* UIAlertController+Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3653018F23F897C7006D80A6 /* UIAlertController+Error.swift */; };
 		3653019223F897D8006D80A6 /* UIAlertController+Waiting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3653019123F897D8006D80A6 /* UIAlertController+Waiting.swift */; };
 		3653019423F89A1C006D80A6 /* UIViewController+DefaultAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3653019323F89A1C006D80A6 /* UIViewController+DefaultAlert.swift */; };
+		365C0DCA240166110028021F /* UIAlertController+TextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 365C0DC9240166110028021F /* UIAlertController+TextField.swift */; };
 		365CF7F023FF1FE6006903E1 /* DocumentDownloading.swift in Sources */ = {isa = PBXBuildFile; fileRef = 365CF7EF23FF1FE6006903E1 /* DocumentDownloading.swift */; };
 		365CF7F723FF2FE3006903E1 /* DocumentViewerContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 365CF7F623FF2FE3006903E1 /* DocumentViewerContainer.swift */; };
 		365CF7F923FF2FF1006903E1 /* DocumentViewerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 365CF7F823FF2FF1006903E1 /* DocumentViewerViewController.swift */; };
 		365CF7FB23FF368D006903E1 /* VKDefaultError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 365CF7FA23FF368D006903E1 /* VKDefaultError.swift */; };
-		365CF7FE23FF3EF5006903E1 /* DocumentBottomSheetController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 365CF7FD23FF3EF5006903E1 /* DocumentBottomSheetController.swift */; };
+		365CF7FE23FF3EF5006903E1 /* DocumentAlertFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 365CF7FD23FF3EF5006903E1 /* DocumentAlertFactory.swift */; };
 		3662E9F923FDC49F00969100 /* DateConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3662E9F823FDC49F00969100 /* DateConverter.swift */; };
 		366F403923FB333300E1AF59 /* DocumentsViewModelConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 366F403823FB333300E1AF59 /* DocumentsViewModelConverter.swift */; };
 		366F403E23FB338400E1AF59 /* DocumentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 366F403D23FB338400E1AF59 /* DocumentViewModel.swift */; };
@@ -62,11 +63,12 @@
 		3653018F23F897C7006D80A6 /* UIAlertController+Error.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIAlertController+Error.swift"; sourceTree = "<group>"; };
 		3653019123F897D8006D80A6 /* UIAlertController+Waiting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIAlertController+Waiting.swift"; sourceTree = "<group>"; };
 		3653019323F89A1C006D80A6 /* UIViewController+DefaultAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+DefaultAlert.swift"; sourceTree = "<group>"; };
+		365C0DC9240166110028021F /* UIAlertController+TextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIAlertController+TextField.swift"; sourceTree = "<group>"; };
 		365CF7EF23FF1FE6006903E1 /* DocumentDownloading.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentDownloading.swift; sourceTree = "<group>"; };
 		365CF7F623FF2FE3006903E1 /* DocumentViewerContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentViewerContainer.swift; sourceTree = "<group>"; };
 		365CF7F823FF2FF1006903E1 /* DocumentViewerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentViewerViewController.swift; sourceTree = "<group>"; };
 		365CF7FA23FF368D006903E1 /* VKDefaultError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VKDefaultError.swift; sourceTree = "<group>"; };
-		365CF7FD23FF3EF5006903E1 /* DocumentBottomSheetController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentBottomSheetController.swift; sourceTree = "<group>"; };
+		365CF7FD23FF3EF5006903E1 /* DocumentAlertFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentAlertFactory.swift; sourceTree = "<group>"; };
 		3662E9F823FDC49F00969100 /* DateConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateConverter.swift; sourceTree = "<group>"; };
 		366F403823FB333300E1AF59 /* DocumentsViewModelConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentsViewModelConverter.swift; sourceTree = "<group>"; };
 		366F403D23FB338400E1AF59 /* DocumentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentViewModel.swift; sourceTree = "<group>"; };
@@ -121,6 +123,7 @@
 		3653018523F88E8A006D80A6 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				365CF7FD23FF3EF5006903E1 /* DocumentAlertFactory.swift */,
 				3653018623F88E9A006D80A6 /* Closures.swift */,
 				3653018F23F897C7006D80A6 /* UIAlertController+Error.swift */,
 				3653019123F897D8006D80A6 /* UIAlertController+Waiting.swift */,
@@ -130,6 +133,7 @@
 				36E7EE0323FB38B100E35038 /* UITableViewCell+ReuseIdentifier.swift */,
 				3662E9F823FDC49F00969100 /* DateConverter.swift */,
 				365CF7FA23FF368D006903E1 /* VKDefaultError.swift */,
+				365C0DC9240166110028021F /* UIAlertController+TextField.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -137,7 +141,6 @@
 		3653018823F88ED6006D80A6 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
-				365CF7FC23FF3ED7006903E1 /* BottomSheetModule */,
 				365CF7F523FF2E75006903E1 /* DocumentViewerModule */,
 				36A203F823F9C25D00C34815 /* Root */,
 				36A203EF23F9C07F00C34815 /* DocumentsModule */,
@@ -174,14 +177,6 @@
 				365CF7F823FF2FF1006903E1 /* DocumentViewerViewController.swift */,
 			);
 			path = DocumentViewerModule;
-			sourceTree = "<group>";
-		};
-		365CF7FC23FF3ED7006903E1 /* BottomSheetModule */ = {
-			isa = PBXGroup;
-			children = (
-				365CF7FD23FF3EF5006903E1 /* DocumentBottomSheetController.swift */,
-			);
-			path = BottomSheetModule;
 			sourceTree = "<group>";
 		};
 		366F403C23FB334C00E1AF59 /* Models */ = {
@@ -434,10 +429,11 @@
 				36D669C023F863DA00F85B77 /* AuthViewController.swift in Sources */,
 				3662E9F923FDC49F00969100 /* DateConverter.swift in Sources */,
 				3653018723F88E9A006D80A6 /* Closures.swift in Sources */,
+				365C0DCA240166110028021F /* UIAlertController+TextField.swift in Sources */,
 				36A203F123F9C0AD00C34815 /* DocumentsViewController.swift in Sources */,
 				36A6A6D42401480100D59A03 /* DocumentDeleting.swift in Sources */,
 				36A203F523F9C12E00C34815 /* DocumentsModuleContainer.swift in Sources */,
-				365CF7FE23FF3EF5006903E1 /* DocumentBottomSheetController.swift in Sources */,
+				365CF7FE23FF3EF5006903E1 /* DocumentAlertFactory.swift in Sources */,
 				36A6A6D8240150E600D59A03 /* DocumentsDeletingController.swift in Sources */,
 				366F403E23FB338400E1AF59 /* DocumentViewModel.swift in Sources */,
 				36A203F323F9C0DE00C34815 /* DocumentsPagingController.swift in Sources */,

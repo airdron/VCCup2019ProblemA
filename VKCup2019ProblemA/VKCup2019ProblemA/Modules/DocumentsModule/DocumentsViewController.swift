@@ -10,14 +10,14 @@ import UIKit
 
 protocol DocumentsModuleInput: class {
     
-    func renameFile(at index: Int)
+    func renameFile(at index: Int, with newName: String)
     func deleteFile(at index: Int)
 }
 
 class DocumentsViewController: UIViewController {
 
     var onOpen: ((_ src: URL, _ ext: String, _ name: String) -> Void)?
-    var onBottomSheet: ((_ documentIndex: Int) -> Void)?
+    var onBottomSheet: ((_ name: String, _ documentIndex: Int) -> Void)?
     
     private let pagingController: DocumentsPagingController
     private let deletingController: DocumentsDeletingController
@@ -67,8 +67,9 @@ extension DocumentsViewController: UITableViewDataSource {
                                                  for: indexPath) as? DocumentTableViewCell
         cell?.configure(viewModel: viewModels[indexPath.row])
         
+        let fileName = viewModels[indexPath.row].meta.fileName
         cell?.onMore = { [weak self] in
-            self?.onBottomSheet?(indexPath.row)
+            self?.onBottomSheet?(fileName, indexPath.row)
         }
         
         guard let documentCell = cell else {
@@ -116,7 +117,7 @@ extension DocumentsViewController: UITableViewDelegate {
 
 extension DocumentsViewController: DocumentsModuleInput {
     
-    func renameFile(at index: Int) {
+    func renameFile(at index: Int, with newName: String) {
         print(viewModels[index].meta.fileName)
     }
     

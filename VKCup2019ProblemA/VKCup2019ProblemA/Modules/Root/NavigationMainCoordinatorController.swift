@@ -85,9 +85,18 @@ class NavigationMainCoordinatorController: VKCupNavigationController {
                                    fileName: fileName)
         }
         
-        viewController.onBottomSheet = { [weak self, weak moduleInput] documentIndex in
-            self?.showBottomSheet(renameHandler: { moduleInput?.renameFile(at: documentIndex) },
-                                  deleteHandler: { moduleInput?.deleteFile(at: documentIndex) })
+        viewController.onBottomSheet = { [weak self, weak moduleInput] fileName, documentIndex in
+            self?.showBottomSheet(
+                renameHandler: {
+                    self?.showRenameAlert(title: fileName) { newName in
+                        moduleInput?.renameFile(at: documentIndex, with: newName)
+                    }
+                },
+                deleteHandler: {
+                    moduleInput?.deleteFile(at: documentIndex)
+                    
+                }
+            )
         }
         
         setViewControllers([viewController], animated: true)
@@ -108,6 +117,15 @@ class NavigationMainCoordinatorController: VKCupNavigationController {
                                  deleteHandler: Action?) {
         let viewController = documentAlertFactory.makeBottomSheet(renameHandler: renameHandler,
                                                                   deleteHandler: deleteHandler)
+        present(viewController,
+                animated: true,
+                completion: nil)
+    }
+    
+    private func showRenameAlert(title: String,
+                                 completion: ((String) -> Void)?) {
+        let viewController = documentAlertFactory.makeRenamingAlert(title: title,
+                                                                    completion: completion)
         present(viewController,
                 animated: true,
                 completion: nil)

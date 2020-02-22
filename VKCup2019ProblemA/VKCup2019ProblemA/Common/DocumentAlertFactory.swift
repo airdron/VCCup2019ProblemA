@@ -1,5 +1,5 @@
 //
-//  DocumentBottomSheetController.swift
+//  DocumentAlertFactory.swift
 //  VKCup2019ProblemA
 //
 //  Created by Andrew Oparin on 21.02.2020.
@@ -33,5 +33,11 @@ class DocumentAlertFactory {
         controller.addAction(deleteAction)
         controller.addAction(cancelAction)
         return controller
+    }
+    
+    func makeRenamingAlert(title: String, completion: ((String) -> Void)?) -> UIAlertController {
+        return UIAlertController.makeTextField(title: L10n.renamingAlertTitle,
+                                               message: L10n.renamingAlertMessage(title),
+                                               completion: completion)
     }
 }

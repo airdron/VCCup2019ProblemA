@@ -35,6 +35,12 @@ internal enum L10n {
   internal static let loginButton = L10n.tr("Localizable", "login_button")
   /// Rename
   internal static let renameActionText = L10n.tr("Localizable", "rename_action_text")
+  /// %@ to
+  internal static func renamingAlertMessage(_ p1: String) -> String {
+    return L10n.tr("Localizable", "renaming_alert_message", p1)
+  }
+  /// Renaming
+  internal static let renamingAlertTitle = L10n.tr("Localizable", "renaming_alert_title")
 }
 // swiftlint:enable explicit_type_interface function_parameter_count identifier_name line_length
 // swiftlint:enable nesting type_body_length type_name

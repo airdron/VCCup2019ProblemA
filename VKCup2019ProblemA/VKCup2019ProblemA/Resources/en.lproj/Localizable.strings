@@ -18,3 +18,5 @@
 "delete_action_text" = "Delete document";
 "rename_action_text" = "Rename";
 "cancel_action_text" = "Cancel";
+"renaming_alert_title" = "Renaming";
+"renaming_alert_message" = "%@ to";

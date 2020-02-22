@@ -18,3 +18,5 @@
 "delete_action_text" = "Удалить документ";
 "rename_action_text" = "Переименовать";
 "cancel_action_text" = "Отменить";
+"renaming_alert_title" = "Переименование";
+"renaming_alert_message" = "%@ в";
