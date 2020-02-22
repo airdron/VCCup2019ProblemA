@@ -103,3 +103,40 @@ extension VKDocumentService: DocumentDeleting {
         
     }
 }
+
+extension VKDocumentService: DocumentRenaming {
+    
+    func rename(documentBy id: Int,
+                title: String,
+                completion: ((Result<Bool, Error>) -> Void)?) {
+        guard let userId = VKSdk.accessToken()?.userId else {
+            print("user id is not found")
+            return
+        }
+        
+        let documentsRequset = VKRequest(method: "docs.edit", parameters: [VK_API_OWNER_ID: userId,
+                                                                           VK_API_DOC_ID: id,
+                                                                           VK_API_TITLE: title])
+        
+        documentsRequset?.execute(resultBlock: { response in
+            guard let responseString = response?.responseString else {
+                return
+            }
+            
+            // не нашел где можно байты с ответа забрать, хорошо бы добавить метод без конвертаций всяких
+            guard let responseData = responseString.data(using: .utf8) else {
+                return
+            }
+            do {
+                let result = try JSONDecoder().decode(OperationResult.self, from: responseData)
+                completion?(.success(result.response == 1 ? true : false))
+            } catch {
+                completion?(.failure(error))
+            }
+            
+        }, errorBlock: { error in
+            completion?(.failure(error ?? VKDefaultError.default))
+        })
+        
+    }
+}

@@ -19,15 +19,12 @@ class DocumentsDeletingController {
     weak var output: DocumentsDeletingControllerOutput?
     
     private let documentsService: DocumentDeleting
-    private let viewModelConverter: DocumentsViewModelConverter
     
     private let loadingQueue: DispatchQueue
     
-    init(viewModelConverter: DocumentsViewModelConverter,
-         documentsService: DocumentDeleting,
+    init(documentsService: DocumentDeleting,
          loadingQueue: DispatchQueue) {
         self.documentsService = documentsService
-        self.viewModelConverter = viewModelConverter
         self.loadingQueue = loadingQueue
     }
     

@@ -17,6 +17,7 @@
 		3653019023F897C7006D80A6 /* UIAlertController+Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3653018F23F897C7006D80A6 /* UIAlertController+Error.swift */; };
 		3653019223F897D8006D80A6 /* UIAlertController+Waiting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3653019123F897D8006D80A6 /* UIAlertController+Waiting.swift */; };
 		3653019423F89A1C006D80A6 /* UIViewController+DefaultAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3653019323F89A1C006D80A6 /* UIViewController+DefaultAlert.swift */; };
+		3655F8C524016DBC008DCBEA /* DocumentsRenamingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3655F8C424016DBC008DCBEA /* DocumentsRenamingController.swift */; };
 		365C0DCA240166110028021F /* UIAlertController+TextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 365C0DC9240166110028021F /* UIAlertController+TextField.swift */; };
 		365CF7F023FF1FE6006903E1 /* DocumentDownloading.swift in Sources */ = {isa = PBXBuildFile; fileRef = 365CF7EF23FF1FE6006903E1 /* DocumentDownloading.swift */; };
 		365CF7F723FF2FE3006903E1 /* DocumentViewerContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 365CF7F623FF2FE3006903E1 /* DocumentViewerContainer.swift */; };
@@ -63,6 +64,7 @@
 		3653018F23F897C7006D80A6 /* UIAlertController+Error.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIAlertController+Error.swift"; sourceTree = "<group>"; };
 		3653019123F897D8006D80A6 /* UIAlertController+Waiting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIAlertController+Waiting.swift"; sourceTree = "<group>"; };
 		3653019323F89A1C006D80A6 /* UIViewController+DefaultAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+DefaultAlert.swift"; sourceTree = "<group>"; };
+		3655F8C424016DBC008DCBEA /* DocumentsRenamingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentsRenamingController.swift; sourceTree = "<group>"; };
 		365C0DC9240166110028021F /* UIAlertController+TextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIAlertController+TextField.swift"; sourceTree = "<group>"; };
 		365CF7EF23FF1FE6006903E1 /* DocumentDownloading.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentDownloading.swift; sourceTree = "<group>"; };
 		365CF7F623FF2FE3006903E1 /* DocumentViewerContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentViewerContainer.swift; sourceTree = "<group>"; };
@@ -219,6 +221,7 @@
 				36A203F223F9C0DE00C34815 /* DocumentsPagingController.swift */,
 				36A203F423F9C12E00C34815 /* DocumentsModuleContainer.swift */,
 				36A6A6D7240150E600D59A03 /* DocumentsDeletingController.swift */,
+				3655F8C424016DBC008DCBEA /* DocumentsRenamingController.swift */,
 			);
 			path = DocumentsModule;
 			sourceTree = "<group>";
@@ -452,6 +455,7 @@
 				36E7EE0223FB359B00E35038 /* DocumentTableViewCell.swift in Sources */,
 				36A6A6D62401481D00D59A03 /* DocumentRenaming.swift in Sources */,
 				3653018423F88E6E006D80A6 /* Localizable.swift in Sources */,
+				3655F8C524016DBC008DCBEA /* DocumentsRenamingController.swift in Sources */,
 				369877EF23F9CFDF00B1EA26 /* UIViewController+SafeArea.swift in Sources */,
 				3653019023F897C7006D80A6 /* UIAlertController+Error.swift in Sources */,
 				369877ED23F9C75B00B1EA26 /* AuthModuleContainer.swift in Sources */,

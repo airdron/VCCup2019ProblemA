@@ -20,13 +20,14 @@ class DocumentsModuleContainer {
         let loadingQueue = DispatchQueue(label: "vkcup.document.serial.queue", qos: .userInitiated)
         let dateConverter = DateConverter()
         let viewModelConverter = DocumentsViewModelConverter(dateConverter: dateConverter)
+        
         let pagingController = DocumentsPagingController(viewModelConverter: viewModelConverter,
                                                          documentsService: dependencyService.resolve(),
                                                          loadingQueue: loadingQueue)
         
-        let deletingController = DocumentsDeletingController(viewModelConverter: viewModelConverter,
-                                                             documentsService: dependencyService.resolve(),
+        let deletingController = DocumentsDeletingController(documentsService: dependencyService.resolve(),
                                                              loadingQueue: loadingQueue)
+        
         let viewController = DocumentsViewController(pagingController: pagingController,
                                                      deletingController: deletingController)
         pagingController.output = viewController
