@@ -116,7 +116,10 @@ extension DocumentsViewController: UITableViewDelegate {
         let src = viewModels[indexPath.row].meta.url
         let ext = viewModels[indexPath.row].meta.ext
         let fileName = viewModels[indexPath.row].meta.title
-        onOpen?(src, ext, fileName)
+        
+        DispatchQueue.main.async {
+            self.onOpen?(src, ext, fileName)
+        }
     }
 }
 
