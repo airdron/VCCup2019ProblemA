@@ -46,7 +46,6 @@ class DocumentTableViewCell: UITableViewCell {
     }
     
     func configure(viewModel: DocumentViewModel) {
-        documentImageView.image = viewModel.placeholder
         infoView.configure(title: viewModel.title,
                            subtitle: viewModel.subtitle,
                            tags: viewModel.tags,

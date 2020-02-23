@@ -17,11 +17,17 @@ class VKDocumentService: DocumentsLoading {
             return
         }
         
+        // uncomment for pagination testing
         let documentsRequset = VKRequest(method: "docs.search", parameters: [VK_API_OWNER_ID: userId,
                                                                              VK_API_OFFSET: offset,
                                                                              VK_API_COUNT: count,
                                                                              "return_tags": 1,
                                                                              VK_API_Q: "linkin park"])
+        
+//        let documentsRequset = VKRequest(method: "docs.get", parameters: [VK_API_OWNER_ID: userId,
+//                                                                          VK_API_OFFSET: offset,
+//                                                                          VK_API_COUNT: count,
+//                                                                          "return_tags": 1])
         documentsRequset?.execute(resultBlock: { response in
             guard let responseString = response?.responseString else {
                 return
