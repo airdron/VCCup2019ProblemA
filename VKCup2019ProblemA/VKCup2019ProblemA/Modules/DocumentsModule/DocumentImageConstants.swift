@@ -23,7 +23,6 @@ class DocumentImageConstants {
         .processor(imageProcessor),
         .cacheSerializer(FormatIndicatedCacheSerializer.jpeg),
         .scaleFactor(UIScreen.main.scale),
-        .transition(.fade(0.2)),
-        .cacheMemoryOnly
+        .transition(.fade(0.2))
     ]
 }
