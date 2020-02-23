@@ -16,10 +16,12 @@ class DocumentImageConstants {
     static let imageProcessor = ResizingImageProcessor(referenceSize: size,
                                                        mode: .aspectFill)
         .append(another: CroppingImageProcessor(size: size))
-        .append(another: RoundCornerImageProcessor(cornerRadius: cornerRadius))
+        .append(another: RoundCornerImageProcessor(cornerRadius: cornerRadius, backgroundColor: .white))
+        .append(another: OpaqueImageProcessor())
     
     static let options: KingfisherOptionsInfo = [
         .processor(imageProcessor),
+        .cacheSerializer(FormatIndicatedCacheSerializer.jpeg),
         .scaleFactor(UIScreen.main.scale),
         .transition(.fade(0.2)),
         .cacheMemoryOnly

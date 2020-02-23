@@ -42,6 +42,7 @@
 		36B3207A23F89C1C003E6F26 /* NavigationMainCoordinatorController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36B3207923F89C1C003E6F26 /* NavigationMainCoordinatorController.swift */; };
 		36B3207C23F8A3FC003E6F26 /* VKInitializing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36B3207B23F8A3FC003E6F26 /* VKInitializing.swift */; };
 		36B3207E23F8A475003E6F26 /* DependencyService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36B3207D23F8A475003E6F26 /* DependencyService.swift */; };
+		36B74E9F24029722003782CE /* OpaqueImageProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36B74E9E24029722003782CE /* OpaqueImageProcessor.swift */; };
 		36D669BC23F863DA00F85B77 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36D669BB23F863DA00F85B77 /* AppDelegate.swift */; };
 		36D669C023F863DA00F85B77 /* AuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36D669BF23F863DA00F85B77 /* AuthViewController.swift */; };
 		36D669C523F863DE00F85B77 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 36D669C423F863DE00F85B77 /* Assets.xcassets */; };
@@ -90,6 +91,7 @@
 		36B3207923F89C1C003E6F26 /* NavigationMainCoordinatorController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationMainCoordinatorController.swift; sourceTree = "<group>"; };
 		36B3207B23F8A3FC003E6F26 /* VKInitializing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VKInitializing.swift; sourceTree = "<group>"; };
 		36B3207D23F8A475003E6F26 /* DependencyService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DependencyService.swift; sourceTree = "<group>"; };
+		36B74E9E24029722003782CE /* OpaqueImageProcessor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpaqueImageProcessor.swift; sourceTree = "<group>"; };
 		36D669B823F863DA00F85B77 /* VKCup2019ProblemA.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VKCup2019ProblemA.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		36D669BB23F863DA00F85B77 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		36D669BF23F863DA00F85B77 /* AuthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewController.swift; sourceTree = "<group>"; };
@@ -138,6 +140,7 @@
 				3662E9F823FDC49F00969100 /* DateConverter.swift */,
 				365CF7FA23FF368D006903E1 /* VKDefaultError.swift */,
 				365C0DC9240166110028021F /* UIAlertController+TextField.swift */,
+				36B74E9E24029722003782CE /* OpaqueImageProcessor.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -440,6 +443,7 @@
 				36A6A6D42401480100D59A03 /* DocumentDeleting.swift in Sources */,
 				36A203F523F9C12E00C34815 /* DocumentsModuleContainer.swift in Sources */,
 				365CF7FE23FF3EF5006903E1 /* DocumentAlertFactory.swift in Sources */,
+				36B74E9F24029722003782CE /* OpaqueImageProcessor.swift in Sources */,
 				36A6A6D8240150E600D59A03 /* DocumentsDeletingController.swift in Sources */,
 				366F403E23FB338400E1AF59 /* DocumentViewModel.swift in Sources */,
 				36A203F323F9C0DE00C34815 /* DocumentsPagingController.swift in Sources */,
