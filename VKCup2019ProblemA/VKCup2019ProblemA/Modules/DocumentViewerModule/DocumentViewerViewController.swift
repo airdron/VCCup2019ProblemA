@@ -71,7 +71,9 @@ class DocumentViewerViewController: QLPreviewController, QLPreviewControllerData
                     self?.handleFile(url: fileUrl)
                 }
             case .failure(let error):
-                self?.showAlert(error: error)
+                DispatchQueue.main.async {
+                    self?.showAlert(error: error)
+                }
             }
         }
     }
