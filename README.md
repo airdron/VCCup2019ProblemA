@@ -8,3 +8,5 @@
 удаление документа;
 переименование документа;
 подключение VK API.
+
+https://codeforces.com/contest/1309/problem/A
